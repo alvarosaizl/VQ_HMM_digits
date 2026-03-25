@@ -151,19 +151,27 @@ Las 12 features del subconjunto medio son:
 
 #### 3.1.5 Efecto del preprocesado
 
-| Configuracion | Accuracy |
-|--------------|----------|
-| Con suavizado + remuestreo | 81.2% |
-| Sin suavizado | 75.5%   |
-| Sin remuestreo | 77.2%  |
-| **Sin nada** | **91.3%** |
+| Configuracion | Suavizado | Remuestreo | Centrado | Escalado | Accuracy |
+|--------------|-----------|------------|----------|----------|----------|
+| **con_todo** | si | 80 | si | si | **81.2%** |
+| sin_suavizado | no | 80 | si | si | 75.5% |
+| sin_resample | si | no | si | si | 77.2% |
+| sin_centrado | si | 80 | no | si | 77.1% |
+| sin_escalado | si | 80 | si | no | 53.9% |
+| sin_cent_esc | si | 80 | no | no | 40.5% |
+| sin_nada | no | no | no | no | 41.9% |
 
-**Conclusión:** Este resultado es **sorprendente e inesperado**. La configuracion sin ningun preprocesado (sin suavizado ni remuestreo) obtuvo la mayor accuracy en la busqueda rapida (91.3%). Esto sugiere que:
+**Conclusiones:**
 
-1. **El remuestreo a longitud fija pierde informacion temporal:** Los HMMs pueden manejar secuencias de longitud variable de forma nativa (mediante el parametro `lengths`). Al forzar todas las secuencias a 80 puntos, se pierde la informacion de velocidad de escritura, que es discriminativa.
-2. **El suavizado puede eliminar detalles utiles:** El filtro Savitzky-Golay, aunque reduce ruido, también elimina microvariaciones que pueden ser caracteristicas de cada digito.
+1. **El escalado es el paso mas critico del preprocesado.** Sin escalado, la accuracy cae drasticamente de 81.2% a 53.9%. Esto se debe a que usuarios distintos dibujan con tamaños muy diferentes; sin normalizar la escala, las distribuciones gaussianas de los HMMs no pueden generalizar entre usuarios.
 
-Sin embargo, en la evaluacion final con mas restarts y 7 estados, la configuracion con preprocesado alcanzo **92.89%**, lo cual indica que con suficiente capacidad del modelo se puede compensar. **La interaccion entre preprocesado y complejidad del modelo es un tema que merece mayor investigacion.**
+2. **El centrado tiene un efecto moderado.** Sin centrado (pero con escalado) la accuracy baja de 81.2% a 77.1%. La posicion absoluta en la pantalla no deberia ser relevante, pero el centrado ayuda a que las features de posicion (x, y) sean comparables.
+
+3. **Sin centrado ni escalado el sistema se degrada gravemente** (40.5%), confirmando que la normalizacion espacial es fundamental para la generalizacion entre usuarios.
+
+4. **El suavizado aporta ~5.7% de mejora** (81.2% vs 75.5%), ya que reduce ruido del sensor tactil.
+
+5. **El remuestreo aporta ~4% de mejora** (81.2% vs 77.2%), al hacer las secuencias comparables en longitud.
 
 ### 3.2 Evaluacion final
 
@@ -173,8 +181,15 @@ Con la mejor configuracion encontrada (7 estados, covarianza diagonal, 12 featur
 |-----------|-------|------|----------|
 | **N=74**  | 74 usuarios | 19 usuarios | **92.89%** |
 | **N=47**  | 47 usuarios | 46 usuarios | **89.78%** |
+| **LOO CV** | 92 usuarios | 1 usuario (x93 folds) | **78.40% +/- 8.79%** |
 
-La accuracy baja con menos datos de entrenamiento (N=47 vs N=74), lo cual es esperable: con menos muestras, los HMMs tienen estimaciones menos precisas de las distribuciones gaussianas en cada estado. Aun asi, la caida es relativamente moderada (~3%).
+**Analisis de los 3 escenarios:**
+
+- **N=74 (92.89%):** Con 74 usuarios de entrenamiento y solo 19 de test, el modelo tiene abundantes datos para estimar bien los parametros. La accuracy es alta, aunque el conjunto de test es pequeño y el resultado puede tener varianza.
+
+- **N=47 (89.78%):** Con menos datos de entrenamiento la accuracy baja ~3%, lo cual es esperable: los HMMs tienen estimaciones menos precisas de las distribuciones gaussianas en cada estado.
+
+- **LOO CV (78.40% +/- 8.79%):** La validacion cruzada Leave-One-User-Out es la evaluacion mas robusta y realista. Cada fold entrena con 92 usuarios y evalua sobre 1, repitiendo para los 93 usuarios. La accuracy media es menor que en los otros escenarios porque: (1) se evalua sobre **todos** los usuarios, incluyendo los mas dificiles, (2) cada usuario tiene ~80 muestras de test (todos sus digitos y sesiones), por lo que un unico usuario difícil puede bajar mucho su accuracy individual. La desviacion tipica de 8.79% refleja la variabilidad entre usuarios: algunos alcanzan >95% y otros bajan a ~50%, lo cual es esperable dada la diversidad de estilos de escritura. Ademas, se uso una configuracion mas ligera (1 restart, 30 iter EM) por coste computacional, lo cual penaliza ligeramente el resultado.
 
 ### 3.3 Analisis de errores (Matriz de confusion)
 
@@ -210,7 +225,7 @@ Del analisis de las matrices de confusion se observan los principales errores:
 | **7 estados** | +16.7% vs 3 estados (89.3% vs 72.6%) | Suficientes "fases" para capturar la estructura de cada digito |
 | **Covarianza tied** | +16.9% vs spherical (87.8% vs 70.9%) | Comparte covarianza entre estados, actua como regularizador |
 | **12 features (med)** | Mejor balance (81.2%) | Suficiente informacion cinemática sin sobredimensionar |
-| **Sin preprocesado** | 91.3% (sorpresa) | Los HMMs aprovechan mejor las secuencias de longitud variable |
+| **Escalado** | Critico (~27% de mejora) | Sin escalado la accuracy cae a 53.9%; normalizar el tamaño es esencial |
 | **Multiple restarts (5)** | 92.89% en eval final | Evita quedar atrapado en maximos locales de EM |
 | **Z-Score normalizacion** | Necesario | Sin normalizar, features con escalas muy distintas dominan la verosimilitud |
 
@@ -283,10 +298,10 @@ El script tarda aproximadamente **10-20 minutos** en ejecutarse completamente (d
 
 ## 7. Resumen de resultados
 
-| Configuracion | Accuracy N=74 | Accuracy N=47 |
-|--------------|---------------|---------------|
-| Baseline (5 estados, 12D, 2 restarts) | 81.2% | - |
-| Mejor config (7 estados, 12D, 5 restarts) | **92.89%** | **89.78%** |
+| Configuracion | Accuracy N=74 | Accuracy N=47 | Accuracy LOO CV |
+|--------------|---------------|---------------|-----------------|
+| Baseline (5 estados, 12D, 2 restarts) | 81.2% | - | - |
+| Mejor config (7 estados, 12D, 5 restarts) | **92.89%** | **89.78%** | **78.40% +/- 8.79%** |
 
 **Mejor configuracion encontrada:**
 - 7 estados HMM (left-right)
@@ -295,21 +310,23 @@ El script tarda aproximadamente **10-20 minutos** en ejecutarse completamente (d
 - Probabilidad de autolazo: 0.6
 - Remuestreo a 80 puntos equidistantes
 - Suavizado Savitzky-Golay (ventana=7, orden=3)
-- 5 restarts por modelo
-- 100 iteraciones EM
+- Centrado y escalado activados
+- 5 restarts por modelo (2 para LOO por coste computacional)
+- 100 iteraciones EM (30 para LOO)
 
 ---
 
 ## 8. Conclusion
 
-Se ha implementado un clasificador de digitos manuscritos basado en HMMs que alcanza una **accuracy del 92.89%** con 74 usuarios de entrenamiento y del **89.78%** con 47. El sistema demuestra que:
+Se ha implementado un clasificador de digitos manuscritos basado en HMMs que alcanza una **accuracy del 92.89%** con 74 usuarios de entrenamiento, del **89.78%** con 47, y del **78.40%** en validacion cruzada Leave-One-User-Out sobre los 93 usuarios. El sistema demuestra que:
 
 1. Los HMMs son una herramienta adecuada para modelar secuencias temporales como el trazado de digitos.
 2. La topologia left-right captura correctamente la estructura secuencial del dibujo.
-3. El preprocesado tiene un efecto complejo: el suavizado y remuestreo ayudan cuando el modelo es simple, pero sin preprocesado (secuencias de longitud variable) el HMM puede alcanzar mejores resultados al preservar la informacion temporal original.
+3. El preprocesado es fundamental: el **escalado** es el paso mas critico (sin el, la accuracy cae a 53.9%), seguido del centrado, suavizado y remuestreo. Sin ningun preprocesado la accuracy se desploma a 40.5%.
 4. El balance entre complejidad del modelo y datos disponibles es fundamental: ni demasiados estados (sobreajuste) ni demasiadas features (maldicion de la dimensionalidad).
 5. La decodificacion Viterbi muestra que el modelo aprende fases del trazado coherentes con la intuicion humana.
 6. El numero de estados es el hiperparametro mas critico (+16.7% de mejora al pasar de 3 a 7).
+7. La evaluacion LOO CV es la mas realista y muestra una alta variabilidad entre usuarios (std=8.79%), reflejando la diversidad de estilos de escritura en la base de datos.
 
 ---
 

@@ -37,6 +37,7 @@ from scipy.interpolate import interp1d
 from scipy.signal import savgol_filter
 from hmmlearn import hmm
 from sklearn.metrics import confusion_matrix as sk_confusion_matrix
+from sklearn.model_selection import LeaveOneOut
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
@@ -191,15 +192,15 @@ def iterar_muestras(db, user_ids):
 # =============================================================================
 
 def preprocesar(x, y, timestamp, n_resample=80, suavizar=True,
-                savgol_ventana=7, savgol_orden=3):
+                savgol_ventana=7, savgol_orden=3, centrar=True, escalar=True):
     """Pipeline de preprocesado para una muestra.
 
     Pasos:
       1. Resetear timestamp a t=0
       2. Suavizado Savitzky-Golay (opcional, reduce ruido del sensor)
       3. Remuestreo equidistante en longitud de arco
-      4. Centrado (restar media de X e Y)
-      5. Escalado a [-1, 1] manteniendo proporcion
+      4. Centrado (restar media de X e Y) (opcional)
+      5. Escalado a [-1, 1] manteniendo proporcion (opcional)
 
     Args:
         x, y, timestamp: coordenadas y tiempos en bruto
@@ -207,6 +208,8 @@ def preprocesar(x, y, timestamp, n_resample=80, suavizar=True,
         suavizar: si True, aplica filtro Savitzky-Golay
         savgol_ventana: tamaño de ventana del filtro
         savgol_orden: orden del polinomio del filtro
+        centrar: si True, resta la media de X e Y
+        escalar: si True, escala a [-1, 1] manteniendo proporcion
 
     Returns:
         x, y, timestamp: arrays preprocesados
@@ -244,14 +247,16 @@ def preprocesar(x, y, timestamp, n_resample=80, suavizar=True,
                 x, y, timestamp = fx(s_objetivo), fy(s_objetivo), ft(s_objetivo)
 
     # 4. Centrado
-    x = x - np.mean(x)
-    y = y - np.mean(y)
+    if centrar:
+        x = x - np.mean(x)
+        y = y - np.mean(y)
 
     # 5. Escalado preservando aspect ratio
-    factor_escala = max(np.ptp(x), np.ptp(y))
-    if factor_escala > 0:
-        x = x / factor_escala
-        y = y / factor_escala
+    if escalar:
+        factor_escala = max(np.ptp(x), np.ptp(y))
+        if factor_escala > 0:
+            x = x / factor_escala
+            y = y / factor_escala
 
     return x, y, timestamp
 
@@ -500,7 +505,7 @@ def clasificar_lote(modelos, secuencias, etiquetas_reales):
 # =============================================================================
 
 def preparar_datos(db, user_ids, indices_features, n_resample=80,
-                   suavizar=True):
+                   suavizar=True, centrar=True, escalar=True):
     """Preprocesa y extrae features para un conjunto de usuarios.
 
     Returns:
@@ -516,6 +521,7 @@ def preparar_datos(db, user_ids, indices_features, n_resample=80,
         x, y, ts = preprocesar(
             muestra["x"], muestra["y"], muestra["timestamp"],
             n_resample=n_resample, suavizar=suavizar,
+            centrar=centrar, escalar=escalar,
         )
         feats = extraer_features(x, y, muestra["presion"],
                                  indices_features=indices_features)
@@ -552,6 +558,8 @@ def ejecutar_escenario(db, usuarios_train, usuarios_test, config,
     prob_autolazo = config.get("prob_autolazo", 0.6)
     n_resample = config.get("n_resample", 80)
     suavizar = config.get("suavizar", True)
+    centrar = config.get("centrar", True)
+    escalar = config.get("escalar", True)
 
     if verbose:
         print(f"\n  Escenario: {nombre}")
@@ -566,12 +574,14 @@ def ejecutar_escenario(db, usuarios_train, usuarios_test, config,
     if verbose:
         print("    [1/5] Preparando datos de entrenamiento...")
     train_por_digito, train_seqs, train_labels = preparar_datos(
-        db, usuarios_train, indices_features, n_resample, suavizar)
+        db, usuarios_train, indices_features, n_resample, suavizar,
+        centrar, escalar)
 
     if verbose:
         print("    [2/5] Preparando datos de test...")
     _, test_seqs, test_labels = preparar_datos(
-        db, usuarios_test, indices_features, n_resample, suavizar)
+        db, usuarios_test, indices_features, n_resample, suavizar,
+        centrar, escalar)
 
     # 2. Normalización Z-Score (ajustar SOLO con train)
     if verbose:
@@ -697,7 +707,8 @@ def graficar_comparativa_global(todos_resultados, filepath):
 
 
 def graficar_viterbi(db, modelos, normalizador, user_ids, indices_features,
-                     n_resample=80, suavizar=True, directorio_salida=None):
+                     n_resample=80, suavizar=True, centrar=True, escalar=True,
+                     directorio_salida=None):
     """Genera gráficas de Viterbi: colorea el trazado por estado HMM.
 
     Para cada dígito (0-9), toma una muestra del primer usuario de test,
@@ -719,7 +730,8 @@ def graficar_viterbi(db, modelos, normalizador, user_ids, indices_features,
         # Preprocesar
         x, y, ts = preprocesar(muestra["x"], muestra["y"],
                                 muestra["timestamp"],
-                                n_resample=n_resample, suavizar=suavizar)
+                                n_resample=n_resample, suavizar=suavizar,
+                                centrar=centrar, escalar=escalar)
 
         # Extraer y normalizar features
         feats = extraer_features(x, y, muestra["presion"],
@@ -891,9 +903,9 @@ def main():
     datos_cache = {}  # {(subset, suavizar, n_resample): (train_norm_por_digito, test_norm, test_labels, normalizador)}
 
     def _preparar_cache(subset, suavizar, n_resample, train_users, test_users,
-                        etiqueta=None):
+                        etiqueta=None, centrar=True, escalar=True):
         """Prepara y cachea datos para una configuracion de preprocesado."""
-        clave = (subset, suavizar, n_resample, len(train_users))
+        clave = (subset, suavizar, n_resample, len(train_users), centrar, escalar)
         if clave in datos_cache:
             return datos_cache[clave]
 
@@ -902,9 +914,9 @@ def main():
             print(f"    Preparando: {etiqueta}...", end=" ", flush=True)
 
         _, train_seqs, train_labels = preparar_datos(
-            db, train_users, indices, n_resample, suavizar)
+            db, train_users, indices, n_resample, suavizar, centrar, escalar)
         _, test_seqs, test_labels = preparar_datos(
-            db, test_users, indices, n_resample, suavizar)
+            db, test_users, indices, n_resample, suavizar, centrar, escalar)
 
         normalizador = NormalizadorZScore()
         train_norm = normalizador.ajustar_y_transformar(train_seqs)
@@ -1008,18 +1020,22 @@ def main():
                          os.path.join(RESULTS_DIR, "comp_autolazo.png"))
 
     # --- 3.5: Efectos del preprocesado ---
+    # (nombre, suavizar, n_resample, centrar, escalar)
     print("\n  --- Efectos del preprocesado ---", flush=True)
     preproc_configs = [
-        ("con_todo",       True,  80),
-        ("sin_suavizado",  False, 80),
-        ("sin_resample",   True,  0),
-        ("sin_nada",       False, 0),
+        ("con_todo",       True,  80, True,  True),
+        ("sin_suavizado",  False, 80, True,  True),
+        ("sin_resample",   True,  0,  True,  True),
+        ("sin_centrado",   True,  80, False, True),
+        ("sin_escalado",   True,  80, True,  False),
+        ("sin_cent_esc",   True,  80, False, False),
+        ("sin_nada",       False, 0,  False, False),
     ]
     res_preproc = []
-    for nombre, suav, nres in preproc_configs:
+    for nombre, suav, nres, cent, esc in preproc_configs:
         t0 = time.time()
         tr, te, tl, _ = _preparar_cache(
-            "med", suav, nres, train_74, test_74, nombre)
+            "med", suav, nres, train_74, test_74, nombre, cent, esc)
         r = _entrenar_y_evaluar(tr, te, tl, n_restarts=2, n_iter=50)
         dt = time.time() - t0
         res_preproc.append({"valor": nombre, "accuracy": r["accuracy"]})
@@ -1071,11 +1087,58 @@ def main():
         res_47["confusion_matrix"], "Matriz de Confusion - N=47 (mejor config)",
         os.path.join(RESULTS_DIR, "confusion_N47.png"))
 
+    # --- Escenario ALL: Leave-One-User-Out Cross Validation ---
+    print("\n  >>> Escenario ALL (Leave-One-User-Out CV) <<<", flush=True)
+    loo = LeaveOneOut()
+    n_users = len(user_ids)
+    accuracies_loo = []
+    cm_acumulada = np.zeros((10, 10), dtype=int)
+    indices_med = FEATURE_SUBSETS["med"]
+
+    for fold_idx, (train_idx, test_idx) in enumerate(loo.split(user_ids)):
+        train_users_fold = [user_ids[i] for i in train_idx]
+        test_users_fold = [user_ids[i] for i in test_idx]
+
+        _, train_seqs, train_labels = preparar_datos(
+            db, train_users_fold, indices_med, n_resample=80, suavizar=True)
+        _, test_seqs, test_labels = preparar_datos(
+            db, test_users_fold, indices_med, n_resample=80, suavizar=True)
+
+        normalizador_fold = NormalizadorZScore()
+        train_norm = normalizador_fold.ajustar_y_transformar(train_seqs)
+        test_norm = normalizador_fold.transformar(test_seqs)
+
+        train_norm_por_digito = defaultdict(list)
+        for seq, label in zip(train_norm, train_labels):
+            train_norm_por_digito[label].append(seq)
+
+        r_fold = _entrenar_y_evaluar(train_norm_por_digito, test_norm,
+                                     test_labels, n_estados=7,
+                                     tipo_covarianza="diag", n_iter=100,
+                                     n_restarts=5, prob_autolazo=0.6)
+        accuracies_loo.append(r_fold["accuracy"])
+        cm_acumulada += r_fold["confusion_matrix"]
+        print(f"    Usuario {fold_idx+1}/{n_users} ({test_users_fold[0]}): "
+              f"accuracy={r_fold['accuracy']*100:.1f}%", flush=True)
+
+    acc_media_loo = np.mean(accuracies_loo)
+    acc_std_loo = np.std(accuracies_loo)
+    todos_resultados["MEJOR_LOO_ALL"] = acc_media_loo
+    print(f"    Media: {acc_media_loo*100:.2f}% (+/- {acc_std_loo*100:.2f}%)",
+          flush=True)
+
+    graficar_confusion(
+        cm_acumulada,
+        f"Matriz de Confusion - LOO CV ({acc_media_loo*100:.1f}% media)",
+        os.path.join(RESULTS_DIR, "confusion_LOO.png"))
+
     # Resumen
-    print(f"\n  {'Escenario':<15} {'Accuracy':>10}")
-    print("  " + "-" * 28)
-    print(f"  {'N=74':<15} {res_74['accuracy'] * 100:>9.2f}%")
-    print(f"  {'N=47':<15} {res_47['accuracy'] * 100:>9.2f}%", flush=True)
+    print(f"\n  {'Escenario':<25} {'Accuracy':>10}")
+    print("  " + "-" * 38)
+    print(f"  {'N=74 (74 train/19 test)':<25} {res_74['accuracy'] * 100:>9.2f}%")
+    print(f"  {'N=47 (47 train/46 test)':<25} {res_47['accuracy'] * 100:>9.2f}%")
+    print(f"  {'ALL (LOO CV)':<25} {acc_media_loo * 100:>8.2f}% +/- {acc_std_loo * 100:.2f}%",
+          flush=True)
 
     # ------------------------------------------------------------------
     # PASO 5: Visualizaciones
@@ -1130,6 +1193,8 @@ def main():
     print(f"\n  Tiempo total: {elapsed / 60:.1f} minutos")
     print(f"\n  Mejor accuracy N=74: {res_74['accuracy'] * 100:.2f}%")
     print(f"  Mejor accuracy N=47: {res_47['accuracy'] * 100:.2f}%")
+    print(f"  Mejor accuracy LOO CV: {acc_media_loo * 100:.2f}% "
+          f"(+/- {acc_std_loo * 100:.2f}%)")
     print(f"\n  Ficheros generados en: {RESULTS_DIR}/")
 
     for f in sorted(os.listdir(RESULTS_DIR)):
