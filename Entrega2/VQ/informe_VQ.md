@@ -20,7 +20,7 @@ Clasificar digitos manuscritos (0-9) a partir de trazados dinamicos capturados e
 - **Escenarios de evaluacion:**
   - **N=74:** 74 usuarios train / 19 usuarios test.
   - **N=47:** 47 usuarios train / 46 usuarios test.
-  - **LOO CV:** Leave-One-User-Out (93 folds).
+  - **LOO CV:** Leave-One-Out (93 folds).
 
 ---
 
@@ -287,10 +287,4 @@ VQ supera a HMM por un amplio margen (+4.21pp en N=74, +4.67pp en N=47 respecto 
 
 6. **VQ es ordenes de magnitud mas rapido que HMM**, tanto en entrenamiento como en busqueda de hiperparametros, lo que permite explorar espacios de busqueda mucho mayores.
 
----
 
-## Referencias
-
-- Linde, Y., Buzo, A., Gray, R.M. (1980). "An Algorithm for Vector Quantizer Design." *IEEE Trans. on Communications*, 28(1).
-- Documentacion de `scikit-learn` (KMeans, MiniBatchKMeans): https://scikit-learn.org/
-- Base de datos e-BioDigit: proporcionada por la asignatura ASMI.
