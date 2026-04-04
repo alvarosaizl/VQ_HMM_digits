@@ -1,0 +1,55 @@
+{
+  "optimizacion": {
+    "n_train": 78,
+    "n_val": 15,
+    "accuracy_val": 0.91,
+    "params": {
+      "0": {
+        "n_estados": 10,
+        "prob_autolazo": 0.6
+      },
+      "1": {
+        "n_estados": 7,
+        "prob_autolazo": 0.6
+      },
+      "2": {
+        "n_estados": 10,
+        "prob_autolazo": 0.6
+      },
+      "3": {
+        "n_estados": 10,
+        "prob_autolazo": 0.4
+      },
+      "4": {
+        "n_estados": 10,
+        "prob_autolazo": 0.6
+      },
+      "5": {
+        "n_estados": 10,
+        "prob_autolazo": 0.6
+      },
+      "6": {
+        "n_estados": 10,
+        "prob_autolazo": 0.4
+      },
+      "7": {
+        "n_estados": 10,
+        "prob_autolazo": 0.4
+      },
+      "8": {
+        "n_estados": 7,
+        "prob_autolazo": 0.6
+      },
+      "9": {
+        "n_estados": 7,
+        "prob_autolazo": 0.6
+      }
+    }
+  },
+  "N74": {
+    "accuracy": 0.9269736842105263
+  },
+  "N47": {
+    "accuracy": 0.8989130434782608
+  }
+}

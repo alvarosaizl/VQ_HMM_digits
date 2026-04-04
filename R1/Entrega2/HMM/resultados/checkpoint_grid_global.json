@@ -1,0 +1,462 @@
+{
+  "resultados": [
+    [
+      {
+        "n_mix": 1,
+        "n_estados": 5,
+        "covarianza": "diag",
+        "prob_autolazo": 0.4,
+        "features": "min"
+      },
+      0.8091666666666667
+    ],
+    [
+      {
+        "n_mix": 1,
+        "n_estados": 5,
+        "covarianza": "diag",
+        "prob_autolazo": 0.4,
+        "features": "med"
+      },
+      0.8233333333333334
+    ],
+    [
+      {
+        "n_mix": 1,
+        "n_estados": 5,
+        "covarianza": "diag",
+        "prob_autolazo": 0.4,
+        "features": "full"
+      },
+      0.7316666666666667
+    ],
+    [
+      {
+        "n_mix": 1,
+        "n_estados": 5,
+        "covarianza": "diag",
+        "prob_autolazo": 0.6,
+        "features": "min"
+      },
+      0.7916666666666666
+    ],
+    [
+      {
+        "n_mix": 1,
+        "n_estados": 5,
+        "covarianza": "diag",
+        "prob_autolazo": 0.6,
+        "features": "med"
+      },
+      0.83
+    ],
+    [
+      {
+        "n_mix": 1,
+        "n_estados": 5,
+        "covarianza": "diag",
+        "prob_autolazo": 0.6,
+        "features": "full"
+      },
+      0.7275
+    ],
+    [
+      {
+        "n_mix": 1,
+        "n_estados": 5,
+        "covarianza": "diag",
+        "prob_autolazo": 0.8,
+        "features": "min"
+      },
+      0.7816666666666666
+    ],
+    [
+      {
+        "n_mix": 1,
+        "n_estados": 5,
+        "covarianza": "diag",
+        "prob_autolazo": 0.8,
+        "features": "med"
+      },
+      0.83
+    ],
+    [
+      {
+        "n_mix": 1,
+        "n_estados": 5,
+        "covarianza": "diag",
+        "prob_autolazo": 0.8,
+        "features": "full"
+      },
+      0.73
+    ],
+    [
+      {
+        "n_mix": 1,
+        "n_estados": 5,
+        "covarianza": "tied",
+        "prob_autolazo": 0.4,
+        "features": "min"
+      },
+      0.8116666666666666
+    ],
+    [
+      {
+        "n_mix": 1,
+        "n_estados": 5,
+        "covarianza": "tied",
+        "prob_autolazo": 0.4,
+        "features": "med"
+      },
+      0.8741666666666666
+    ],
+    [
+      {
+        "n_mix": 1,
+        "n_estados": 5,
+        "covarianza": "tied",
+        "prob_autolazo": 0.4,
+        "features": "full"
+      },
+      0.56
+    ],
+    [
+      {
+        "n_mix": 1,
+        "n_estados": 5,
+        "covarianza": "tied",
+        "prob_autolazo": 0.6,
+        "features": "min"
+      },
+      0.8116666666666666
+    ],
+    [
+      {
+        "n_mix": 1,
+        "n_estados": 5,
+        "covarianza": "tied",
+        "prob_autolazo": 0.6,
+        "features": "med"
+      },
+      0.8808333333333334
+    ],
+    [
+      {
+        "n_mix": 1,
+        "n_estados": 5,
+        "covarianza": "tied",
+        "prob_autolazo": 0.6,
+        "features": "full"
+      },
+      0.5833333333333334
+    ],
+    [
+      {
+        "n_mix": 1,
+        "n_estados": 5,
+        "covarianza": "tied",
+        "prob_autolazo": 0.8,
+        "features": "min"
+      },
+      0.8258333333333333
+    ],
+    [
+      {
+        "n_mix": 1,
+        "n_estados": 5,
+        "covarianza": "tied",
+        "prob_autolazo": 0.8,
+        "features": "med"
+      },
+      0.8808333333333334
+    ],
+    [
+      {
+        "n_mix": 1,
+        "n_estados": 5,
+        "covarianza": "tied",
+        "prob_autolazo": 0.8,
+        "features": "full"
+      },
+      0.5966666666666667
+    ],
+    [
+      {
+        "n_mix": 1,
+        "n_estados": 7,
+        "covarianza": "diag",
+        "prob_autolazo": 0.4,
+        "features": "min"
+      },
+      0.8633333333333333
+    ],
+    [
+      {
+        "n_mix": 1,
+        "n_estados": 7,
+        "covarianza": "diag",
+        "prob_autolazo": 0.4,
+        "features": "med"
+      },
+      0.7491666666666666
+    ],
+    [
+      {
+        "n_mix": 1,
+        "n_estados": 7,
+        "covarianza": "diag",
+        "prob_autolazo": 0.4,
+        "features": "full"
+      },
+      0.8683333333333333
+    ],
+    [
+      {
+        "n_mix": 1,
+        "n_estados": 7,
+        "covarianza": "diag",
+        "prob_autolazo": 0.6,
+        "features": "min"
+      },
+      0.8541666666666666
+    ],
+    [
+      {
+        "n_mix": 1,
+        "n_estados": 7,
+        "covarianza": "diag",
+        "prob_autolazo": 0.6,
+        "features": "med"
+      },
+      0.7691666666666667
+    ],
+    [
+      {
+        "n_mix": 1,
+        "n_estados": 7,
+        "covarianza": "diag",
+        "prob_autolazo": 0.6,
+        "features": "full"
+      },
+      0.8658333333333333
+    ],
+    [
+      {
+        "n_mix": 1,
+        "n_estados": 7,
+        "covarianza": "diag",
+        "prob_autolazo": 0.8,
+        "features": "min"
+      },
+      0.8541666666666666
+    ],
+    [
+      {
+        "n_mix": 1,
+        "n_estados": 7,
+        "covarianza": "diag",
+        "prob_autolazo": 0.8,
+        "features": "med"
+      },
+      0.7708333333333334
+    ],
+    [
+      {
+        "n_mix": 1,
+        "n_estados": 7,
+        "covarianza": "diag",
+        "prob_autolazo": 0.8,
+        "features": "full"
+      },
+      0.8708333333333333
+    ],
+    [
+      {
+        "n_mix": 1,
+        "n_estados": 7,
+        "covarianza": "tied",
+        "prob_autolazo": 0.4,
+        "features": "min"
+      },
+      0.8658333333333333
+    ],
+    [
+      {
+        "n_mix": 1,
+        "n_estados": 7,
+        "covarianza": "tied",
+        "prob_autolazo": 0.4,
+        "features": "med"
+      },
+      0.6125
+    ],
+    [
+      {
+        "n_mix": 1,
+        "n_estados": 7,
+        "covarianza": "tied",
+        "prob_autolazo": 0.4,
+        "features": "full"
+      },
+      0.6033333333333334
+    ],
+    [
+      {
+        "n_mix": 1,
+        "n_estados": 7,
+        "covarianza": "tied",
+        "prob_autolazo": 0.6,
+        "features": "min"
+      },
+      0.8583333333333333
+    ],
+    [
+      {
+        "n_mix": 1,
+        "n_estados": 7,
+        "covarianza": "tied",
+        "prob_autolazo": 0.6,
+        "features": "med"
+      },
+      0.6133333333333333
+    ],
+    [
+      {
+        "n_mix": 1,
+        "n_estados": 7,
+        "covarianza": "tied",
+        "prob_autolazo": 0.6,
+        "features": "full"
+      },
+      0.5991666666666666
+    ],
+    [
+      {
+        "n_mix": 1,
+        "n_estados": 7,
+        "covarianza": "tied",
+        "prob_autolazo": 0.8,
+        "features": "min"
+      },
+      0.8583333333333333
+    ],
+    [
+      {
+        "n_mix": 1,
+        "n_estados": 7,
+        "covarianza": "tied",
+        "prob_autolazo": 0.8,
+        "features": "med"
+      },
+      0.6133333333333333
+    ],
+    [
+      {
+        "n_mix": 1,
+        "n_estados": 7,
+        "covarianza": "tied",
+        "prob_autolazo": 0.8,
+        "features": "full"
+      },
+      0.6041666666666666
+    ],
+    [
+      {
+        "n_mix": 1,
+        "n_estados": 10,
+        "covarianza": "diag",
+        "prob_autolazo": 0.4,
+        "features": "min"
+      },
+      0.9075
+    ],
+    [
+      {
+        "n_mix": 1,
+        "n_estados": 10,
+        "covarianza": "diag",
+        "prob_autolazo": 0.4,
+        "features": "med"
+      },
+      0.8883333333333333
+    ],
+    [
+      {
+        "n_mix": 1,
+        "n_estados": 10,
+        "covarianza": "diag",
+        "prob_autolazo": 0.4,
+        "features": "full"
+      },
+      0.8541666666666666
+    ],
+    [
+      {
+        "n_mix": 1,
+        "n_estados": 10,
+        "covarianza": "diag",
+        "prob_autolazo": 0.6,
+        "features": "min"
+      },
+      0.9075
+    ],
+    [
+      {
+        "n_mix": 1,
+        "n_estados": 10,
+        "covarianza": "diag",
+        "prob_autolazo": 0.6,
+        "features": "med"
+      },
+      0.8575
+    ],
+    [
+      {
+        "n_mix": 1,
+        "n_estados": 10,
+        "covarianza": "diag",
+        "prob_autolazo": 0.6,
+        "features": "full"
+      },
+      0.8533333333333334
+    ],
+    [
+      {
+        "n_mix": 1,
+        "n_estados": 10,
+        "covarianza": "diag",
+        "prob_autolazo": 0.8,
+        "features": "min"
+      },
+      0.9091666666666667
+    ],
+    [
+      {
+        "n_mix": 1,
+        "n_estados": 10,
+        "covarianza": "diag",
+        "prob_autolazo": 0.8,
+        "features": "med"
+      },
+      0.8766666666666667
+    ],
+    [
+      {
+        "n_mix": 1,
+        "n_estados": 10,
+        "covarianza": "diag",
+        "prob_autolazo": 0.8,
+        "features": "full"
+      },
+      0.8391666666666666
+    ]
+  ],
+  "mejor_config": {
+    "n_mix": 1,
+    "n_estados": 10,
+    "covarianza": "diag",
+    "prob_autolazo": 0.8,
+    "features": "min"
+  },
+  "mejor_acc": 0.9091666666666667
+}

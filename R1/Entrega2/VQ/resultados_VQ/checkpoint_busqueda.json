@@ -1,0 +1,2198 @@
+[
+  {
+    "algorithm": "kmeans",
+    "features": "pos_vel_ang",
+    "feature_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "n_centroids": 8,
+    "accuracy": 0.9275,
+    "time": 10.017661809921265
+  },
+  {
+    "algorithm": "kmeans",
+    "features": "pos_vel_ang",
+    "feature_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "n_centroids": 16,
+    "accuracy": 0.9275,
+    "time": 10.402719259262085
+  },
+  {
+    "algorithm": "kmeans",
+    "features": "pos_vel_ang",
+    "feature_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "n_centroids": 32,
+    "accuracy": 0.9533333333333334,
+    "time": 12.170442342758179
+  },
+  {
+    "algorithm": "kmeans",
+    "features": "pos_vel_ang",
+    "feature_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "n_centroids": 64,
+    "accuracy": 0.955,
+    "time": 15.343692541122437
+  },
+  {
+    "algorithm": "kmeans",
+    "features": "pos_vel_ang",
+    "feature_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "n_centroids": 128,
+    "accuracy": 0.9625,
+    "time": 24.400954008102417
+  },
+  {
+    "algorithm": "kmeans",
+    "features": "pos_vel_ang",
+    "feature_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "n_centroids": 256,
+    "accuracy": 0.9616666666666667,
+    "time": 46.93462800979614
+  },
+  {
+    "algorithm": "kmeans",
+    "features": "vel_ang",
+    "feature_indices": [
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "n_centroids": 8,
+    "accuracy": 0.43166666666666664,
+    "time": 8.807690143585205
+  },
+  {
+    "algorithm": "kmeans",
+    "features": "vel_ang",
+    "feature_indices": [
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "n_centroids": 16,
+    "accuracy": 0.4241666666666667,
+    "time": 8.845145463943481
+  },
+  {
+    "algorithm": "kmeans",
+    "features": "vel_ang",
+    "feature_indices": [
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "n_centroids": 32,
+    "accuracy": 0.4091666666666667,
+    "time": 8.998220443725586
+  },
+  {
+    "algorithm": "kmeans",
+    "features": "vel_ang",
+    "feature_indices": [
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "n_centroids": 64,
+    "accuracy": 0.4708333333333333,
+    "time": 9.499023675918579
+  },
+  {
+    "algorithm": "kmeans",
+    "features": "vel_ang",
+    "feature_indices": [
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "n_centroids": 128,
+    "accuracy": 0.4891666666666667,
+    "time": 12.872745990753174
+  },
+  {
+    "algorithm": "kmeans",
+    "features": "vel_ang",
+    "feature_indices": [
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "n_centroids": 256,
+    "accuracy": 0.4525,
+    "time": 27.421640396118164
+  },
+  {
+    "algorithm": "kmeans",
+    "features": "full",
+    "feature_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "n_centroids": 8,
+    "accuracy": 0.895,
+    "time": 10.147744178771973
+  },
+  {
+    "algorithm": "kmeans",
+    "features": "full",
+    "feature_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "n_centroids": 16,
+    "accuracy": 0.9416666666666667,
+    "time": 10.98635721206665
+  },
+  {
+    "algorithm": "kmeans",
+    "features": "full",
+    "feature_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "n_centroids": 32,
+    "accuracy": 0.9691666666666666,
+    "time": 13.474504947662354
+  },
+  {
+    "algorithm": "kmeans",
+    "features": "full",
+    "feature_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "n_centroids": 64,
+    "accuracy": 0.9708333333333333,
+    "time": 18.517696380615234
+  },
+  {
+    "algorithm": "kmeans",
+    "features": "full",
+    "feature_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "n_centroids": 128,
+    "accuracy": 0.9708333333333333,
+    "time": 32.51972770690918
+  },
+  {
+    "algorithm": "kmeans",
+    "features": "full",
+    "feature_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "n_centroids": 256,
+    "accuracy": 0.9733333333333334,
+    "time": 58.44666242599487
+  },
+  {
+    "algorithm": "kmeans",
+    "features": "vel_acc",
+    "feature_indices": [
+      2,
+      3,
+      4,
+      7,
+      8,
+      9
+    ],
+    "n_centroids": 8,
+    "accuracy": 0.5016666666666667,
+    "time": 9.627055883407593
+  },
+  {
+    "algorithm": "kmeans",
+    "features": "vel_acc",
+    "feature_indices": [
+      2,
+      3,
+      4,
+      7,
+      8,
+      9
+    ],
+    "n_centroids": 16,
+    "accuracy": 0.5541666666666667,
+    "time": 10.530995845794678
+  },
+  {
+    "algorithm": "kmeans",
+    "features": "vel_acc",
+    "feature_indices": [
+      2,
+      3,
+      4,
+      7,
+      8,
+      9
+    ],
+    "n_centroids": 32,
+    "accuracy": 0.5558333333333333,
+    "time": 12.504817247390747
+  },
+  {
+    "algorithm": "kmeans",
+    "features": "vel_acc",
+    "feature_indices": [
+      2,
+      3,
+      4,
+      7,
+      8,
+      9
+    ],
+    "n_centroids": 64,
+    "accuracy": 0.5583333333333333,
+    "time": 14.854373455047607
+  },
+  {
+    "algorithm": "kmeans",
+    "features": "vel_acc",
+    "feature_indices": [
+      2,
+      3,
+      4,
+      7,
+      8,
+      9
+    ],
+    "n_centroids": 128,
+    "accuracy": 0.53,
+    "time": 21.947766542434692
+  },
+  {
+    "algorithm": "kmeans",
+    "features": "vel_acc",
+    "feature_indices": [
+      2,
+      3,
+      4,
+      7,
+      8,
+      9
+    ],
+    "n_centroids": 256,
+    "accuracy": 0.53,
+    "time": 42.924094438552856
+  },
+  {
+    "algorithm": "kmeans",
+    "features": "ang_curv",
+    "feature_indices": [
+      4,
+      5,
+      6,
+      10
+    ],
+    "n_centroids": 8,
+    "accuracy": 0.6858333333333333,
+    "time": 9.255801677703857
+  },
+  {
+    "algorithm": "kmeans",
+    "features": "ang_curv",
+    "feature_indices": [
+      4,
+      5,
+      6,
+      10
+    ],
+    "n_centroids": 16,
+    "accuracy": 0.6975,
+    "time": 9.833805799484253
+  },
+  {
+    "algorithm": "kmeans",
+    "features": "ang_curv",
+    "feature_indices": [
+      4,
+      5,
+      6,
+      10
+    ],
+    "n_centroids": 32,
+    "accuracy": 0.7066666666666667,
+    "time": 10.185560464859009
+  },
+  {
+    "algorithm": "kmeans",
+    "features": "ang_curv",
+    "feature_indices": [
+      4,
+      5,
+      6,
+      10
+    ],
+    "n_centroids": 64,
+    "accuracy": 0.6975,
+    "time": 11.593132257461548
+  },
+  {
+    "algorithm": "kmeans",
+    "features": "ang_curv",
+    "feature_indices": [
+      4,
+      5,
+      6,
+      10
+    ],
+    "n_centroids": 128,
+    "accuracy": 0.6516666666666666,
+    "time": 15.692749261856079
+  },
+  {
+    "algorithm": "kmeans",
+    "features": "ang_curv",
+    "feature_indices": [
+      4,
+      5,
+      6,
+      10
+    ],
+    "n_centroids": 256,
+    "accuracy": 0.6433333333333333,
+    "time": 32.64839744567871
+  },
+  {
+    "algorithm": "kmeans",
+    "features": "pos_ang_curv",
+    "feature_indices": [
+      0,
+      1,
+      5,
+      6,
+      10
+    ],
+    "n_centroids": 8,
+    "accuracy": 0.8941666666666667,
+    "time": 9.656997680664062
+  },
+  {
+    "algorithm": "kmeans",
+    "features": "pos_ang_curv",
+    "feature_indices": [
+      0,
+      1,
+      5,
+      6,
+      10
+    ],
+    "n_centroids": 16,
+    "accuracy": 0.9358333333333333,
+    "time": 10.146297693252563
+  },
+  {
+    "algorithm": "kmeans",
+    "features": "pos_ang_curv",
+    "feature_indices": [
+      0,
+      1,
+      5,
+      6,
+      10
+    ],
+    "n_centroids": 32,
+    "accuracy": 0.9625,
+    "time": 11.665849447250366
+  },
+  {
+    "algorithm": "kmeans",
+    "features": "pos_ang_curv",
+    "feature_indices": [
+      0,
+      1,
+      5,
+      6,
+      10
+    ],
+    "n_centroids": 64,
+    "accuracy": 0.9641666666666666,
+    "time": 14.803784370422363
+  },
+  {
+    "algorithm": "kmeans",
+    "features": "pos_ang_curv",
+    "feature_indices": [
+      0,
+      1,
+      5,
+      6,
+      10
+    ],
+    "n_centroids": 128,
+    "accuracy": 0.9691666666666666,
+    "time": 23.450603723526
+  },
+  {
+    "algorithm": "kmeans",
+    "features": "pos_ang_curv",
+    "feature_indices": [
+      0,
+      1,
+      5,
+      6,
+      10
+    ],
+    "n_centroids": 256,
+    "accuracy": 0.97,
+    "time": 47.18451118469238
+  },
+  {
+    "algorithm": "kmeans",
+    "features": "all_no_pos",
+    "feature_indices": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "n_centroids": 8,
+    "accuracy": 0.6625,
+    "time": 9.532606601715088
+  },
+  {
+    "algorithm": "kmeans",
+    "features": "all_no_pos",
+    "feature_indices": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "n_centroids": 16,
+    "accuracy": 0.7016666666666667,
+    "time": 10.3428373336792
+  },
+  {
+    "algorithm": "kmeans",
+    "features": "all_no_pos",
+    "feature_indices": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "n_centroids": 32,
+    "accuracy": 0.6841666666666667,
+    "time": 11.237571239471436
+  },
+  {
+    "algorithm": "kmeans",
+    "features": "all_no_pos",
+    "feature_indices": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "n_centroids": 64,
+    "accuracy": 0.6708333333333333,
+    "time": 13.472782373428345
+  },
+  {
+    "algorithm": "kmeans",
+    "features": "all_no_pos",
+    "feature_indices": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "n_centroids": 128,
+    "accuracy": 0.6641666666666667,
+    "time": 19.829724311828613
+  },
+  {
+    "algorithm": "kmeans",
+    "features": "all_no_pos",
+    "feature_indices": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "n_centroids": 256,
+    "accuracy": 0.6533333333333333,
+    "time": 36.90825057029724
+  },
+  {
+    "algorithm": "kmeans",
+    "features": "vel_only",
+    "feature_indices": [
+      2,
+      3,
+      4
+    ],
+    "n_centroids": 8,
+    "accuracy": 0.5125,
+    "time": 9.587270498275757
+  },
+  {
+    "algorithm": "kmeans",
+    "features": "vel_only",
+    "feature_indices": [
+      2,
+      3,
+      4
+    ],
+    "n_centroids": 16,
+    "accuracy": 0.6075,
+    "time": 10.2067711353302
+  },
+  {
+    "algorithm": "kmeans",
+    "features": "vel_only",
+    "feature_indices": [
+      2,
+      3,
+      4
+    ],
+    "n_centroids": 32,
+    "accuracy": 0.5466666666666666,
+    "time": 11.121925592422485
+  },
+  {
+    "algorithm": "kmeans",
+    "features": "vel_only",
+    "feature_indices": [
+      2,
+      3,
+      4
+    ],
+    "n_centroids": 64,
+    "accuracy": 0.5316666666666666,
+    "time": 12.757015705108643
+  },
+  {
+    "algorithm": "kmeans",
+    "features": "vel_only",
+    "feature_indices": [
+      2,
+      3,
+      4
+    ],
+    "n_centroids": 128,
+    "accuracy": 0.5191666666666667,
+    "time": 17.69102120399475
+  },
+  {
+    "algorithm": "kmeans",
+    "features": "vel_only",
+    "feature_indices": [
+      2,
+      3,
+      4
+    ],
+    "n_centroids": 256,
+    "accuracy": 0.5216666666666666,
+    "time": 37.494945764541626
+  },
+  {
+    "algorithm": "lbg",
+    "features": "pos_vel_ang",
+    "feature_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "n_centroids": 8,
+    "accuracy": 0.9108333333333334,
+    "time": 3.6146976947784424
+  },
+  {
+    "algorithm": "lbg",
+    "features": "pos_vel_ang",
+    "feature_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "n_centroids": 16,
+    "accuracy": 0.9208333333333333,
+    "time": 7.728979110717773
+  },
+  {
+    "algorithm": "lbg",
+    "features": "pos_vel_ang",
+    "feature_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "n_centroids": 32,
+    "accuracy": 0.955,
+    "time": 25.111136198043823
+  },
+  {
+    "algorithm": "lbg",
+    "features": "pos_vel_ang",
+    "feature_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "n_centroids": 64,
+    "accuracy": 0.9625,
+    "time": 54.383431911468506
+  },
+  {
+    "algorithm": "lbg",
+    "features": "pos_vel_ang",
+    "feature_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "n_centroids": 128,
+    "accuracy": 0.965,
+    "time": 125.21586227416992
+  },
+  {
+    "algorithm": "lbg",
+    "features": "pos_vel_ang",
+    "feature_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "n_centroids": 256,
+    "accuracy": 0.965,
+    "time": 274.03439569473267
+  },
+  {
+    "algorithm": "lbg",
+    "features": "vel_ang",
+    "feature_indices": [
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "n_centroids": 8,
+    "accuracy": 0.44333333333333336,
+    "time": 1.1667368412017822
+  },
+  {
+    "algorithm": "lbg",
+    "features": "vel_ang",
+    "feature_indices": [
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "n_centroids": 16,
+    "accuracy": 0.36083333333333334,
+    "time": 1.881617546081543
+  },
+  {
+    "algorithm": "lbg",
+    "features": "vel_ang",
+    "feature_indices": [
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "n_centroids": 32,
+    "accuracy": 0.37833333333333335,
+    "time": 3.2986676692962646
+  },
+  {
+    "algorithm": "lbg",
+    "features": "vel_ang",
+    "feature_indices": [
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "n_centroids": 64,
+    "accuracy": 0.4058333333333333,
+    "time": 9.051185369491577
+  },
+  {
+    "algorithm": "lbg",
+    "features": "vel_ang",
+    "feature_indices": [
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "n_centroids": 128,
+    "accuracy": 0.4425,
+    "time": 28.668721199035645
+  },
+  {
+    "algorithm": "lbg",
+    "features": "vel_ang",
+    "feature_indices": [
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "n_centroids": 256,
+    "accuracy": 0.41583333333333333,
+    "time": 101.64573407173157
+  },
+  {
+    "algorithm": "lbg",
+    "features": "full",
+    "feature_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "n_centroids": 8,
+    "accuracy": 0.8766666666666667,
+    "time": 4.919654846191406
+  },
+  {
+    "algorithm": "lbg",
+    "features": "full",
+    "feature_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "n_centroids": 16,
+    "accuracy": 0.9308333333333333,
+    "time": 10.312950611114502
+  },
+  {
+    "algorithm": "lbg",
+    "features": "full",
+    "feature_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "n_centroids": 32,
+    "accuracy": 0.955,
+    "time": 35.538936376571655
+  },
+  {
+    "algorithm": "lbg",
+    "features": "full",
+    "feature_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "n_centroids": 64,
+    "accuracy": 0.9708333333333333,
+    "time": 91.82493257522583
+  },
+  {
+    "algorithm": "lbg",
+    "features": "full",
+    "feature_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "n_centroids": 128,
+    "accuracy": 0.9691666666666666,
+    "time": 196.89420986175537
+  },
+  {
+    "algorithm": "lbg",
+    "features": "full",
+    "feature_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "n_centroids": 256,
+    "accuracy": 0.9716666666666667,
+    "time": 418.7768461704254
+  },
+  {
+    "algorithm": "lbg",
+    "features": "vel_acc",
+    "feature_indices": [
+      2,
+      3,
+      4,
+      7,
+      8,
+      9
+    ],
+    "n_centroids": 8,
+    "accuracy": 0.46166666666666667,
+    "time": 3.680454969406128
+  },
+  {
+    "algorithm": "lbg",
+    "features": "vel_acc",
+    "feature_indices": [
+      2,
+      3,
+      4,
+      7,
+      8,
+      9
+    ],
+    "n_centroids": 16,
+    "accuracy": 0.5683333333333334,
+    "time": 7.499257802963257
+  },
+  {
+    "algorithm": "lbg",
+    "features": "vel_acc",
+    "feature_indices": [
+      2,
+      3,
+      4,
+      7,
+      8,
+      9
+    ],
+    "n_centroids": 32,
+    "accuracy": 0.5566666666666666,
+    "time": 15.410622835159302
+  },
+  {
+    "algorithm": "lbg",
+    "features": "vel_acc",
+    "feature_indices": [
+      2,
+      3,
+      4,
+      7,
+      8,
+      9
+    ],
+    "n_centroids": 64,
+    "accuracy": 0.5441666666666667,
+    "time": 47.38826370239258
+  },
+  {
+    "algorithm": "lbg",
+    "features": "vel_acc",
+    "feature_indices": [
+      2,
+      3,
+      4,
+      7,
+      8,
+      9
+    ],
+    "n_centroids": 128,
+    "accuracy": 0.5733333333333334,
+    "time": 110.51379799842834
+  },
+  {
+    "algorithm": "lbg",
+    "features": "vel_acc",
+    "feature_indices": [
+      2,
+      3,
+      4,
+      7,
+      8,
+      9
+    ],
+    "n_centroids": 256,
+    "accuracy": 0.5658333333333333,
+    "time": 250.0320222377777
+  },
+  {
+    "algorithm": "lbg",
+    "features": "ang_curv",
+    "feature_indices": [
+      4,
+      5,
+      6,
+      10
+    ],
+    "n_centroids": 8,
+    "accuracy": 0.6341666666666667,
+    "time": 2.157064914703369
+  },
+  {
+    "algorithm": "lbg",
+    "features": "ang_curv",
+    "feature_indices": [
+      4,
+      5,
+      6,
+      10
+    ],
+    "n_centroids": 16,
+    "accuracy": 0.6933333333333334,
+    "time": 4.460369825363159
+  },
+  {
+    "algorithm": "lbg",
+    "features": "ang_curv",
+    "feature_indices": [
+      4,
+      5,
+      6,
+      10
+    ],
+    "n_centroids": 32,
+    "accuracy": 0.69,
+    "time": 9.134902477264404
+  },
+  {
+    "algorithm": "lbg",
+    "features": "ang_curv",
+    "feature_indices": [
+      4,
+      5,
+      6,
+      10
+    ],
+    "n_centroids": 64,
+    "accuracy": 0.67,
+    "time": 23.30283498764038
+  },
+  {
+    "algorithm": "lbg",
+    "features": "ang_curv",
+    "feature_indices": [
+      4,
+      5,
+      6,
+      10
+    ],
+    "n_centroids": 128,
+    "accuracy": 0.6675,
+    "time": 57.50259518623352
+  },
+  {
+    "algorithm": "lbg",
+    "features": "ang_curv",
+    "feature_indices": [
+      4,
+      5,
+      6,
+      10
+    ],
+    "n_centroids": 256,
+    "accuracy": 0.6525,
+    "time": 122.00560522079468
+  },
+  {
+    "algorithm": "lbg",
+    "features": "pos_ang_curv",
+    "feature_indices": [
+      0,
+      1,
+      5,
+      6,
+      10
+    ],
+    "n_centroids": 8,
+    "accuracy": 0.8766666666666667,
+    "time": 2.740222215652466
+  },
+  {
+    "algorithm": "lbg",
+    "features": "pos_ang_curv",
+    "feature_indices": [
+      0,
+      1,
+      5,
+      6,
+      10
+    ],
+    "n_centroids": 16,
+    "accuracy": 0.9308333333333333,
+    "time": 5.694339752197266
+  },
+  {
+    "algorithm": "lbg",
+    "features": "pos_ang_curv",
+    "feature_indices": [
+      0,
+      1,
+      5,
+      6,
+      10
+    ],
+    "n_centroids": 32,
+    "accuracy": 0.9566666666666667,
+    "time": 12.50654125213623
+  },
+  {
+    "algorithm": "lbg",
+    "features": "pos_ang_curv",
+    "feature_indices": [
+      0,
+      1,
+      5,
+      6,
+      10
+    ],
+    "n_centroids": 64,
+    "accuracy": 0.9716666666666667,
+    "time": 37.50917291641235
+  },
+  {
+    "algorithm": "lbg",
+    "features": "pos_ang_curv",
+    "feature_indices": [
+      0,
+      1,
+      5,
+      6,
+      10
+    ],
+    "n_centroids": 128,
+    "accuracy": 0.97,
+    "time": 90.62607622146606
+  },
+  {
+    "algorithm": "lbg",
+    "features": "pos_ang_curv",
+    "feature_indices": [
+      0,
+      1,
+      5,
+      6,
+      10
+    ],
+    "n_centroids": 256,
+    "accuracy": 0.97,
+    "time": 203.51135730743408
+  },
+  {
+    "algorithm": "lbg",
+    "features": "all_no_pos",
+    "feature_indices": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "n_centroids": 8,
+    "accuracy": 0.6341666666666667,
+    "time": 3.439300060272217
+  },
+  {
+    "algorithm": "lbg",
+    "features": "all_no_pos",
+    "feature_indices": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "n_centroids": 16,
+    "accuracy": 0.6891666666666667,
+    "time": 7.058699131011963
+  },
+  {
+    "algorithm": "lbg",
+    "features": "all_no_pos",
+    "feature_indices": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "n_centroids": 32,
+    "accuracy": 0.6908333333333333,
+    "time": 20.33001446723938
+  },
+  {
+    "algorithm": "lbg",
+    "features": "all_no_pos",
+    "feature_indices": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "n_centroids": 64,
+    "accuracy": 0.6766666666666666,
+    "time": 54.87209630012512
+  },
+  {
+    "algorithm": "lbg",
+    "features": "all_no_pos",
+    "feature_indices": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "n_centroids": 128,
+    "accuracy": 0.6683333333333333,
+    "time": 115.31819272041321
+  },
+  {
+    "algorithm": "lbg",
+    "features": "all_no_pos",
+    "feature_indices": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "n_centroids": 256,
+    "accuracy": 0.6425,
+    "time": 260.8299820423126
+  },
+  {
+    "algorithm": "lbg",
+    "features": "vel_only",
+    "feature_indices": [
+      2,
+      3,
+      4
+    ],
+    "n_centroids": 8,
+    "accuracy": 0.49583333333333335,
+    "time": 2.3452224731445312
+  },
+  {
+    "algorithm": "lbg",
+    "features": "vel_only",
+    "feature_indices": [
+      2,
+      3,
+      4
+    ],
+    "n_centroids": 16,
+    "accuracy": 0.5525,
+    "time": 4.919451951980591
+  },
+  {
+    "algorithm": "lbg",
+    "features": "vel_only",
+    "feature_indices": [
+      2,
+      3,
+      4
+    ],
+    "n_centroids": 32,
+    "accuracy": 0.5516666666666666,
+    "time": 9.76889944076538
+  },
+  {
+    "algorithm": "lbg",
+    "features": "vel_only",
+    "feature_indices": [
+      2,
+      3,
+      4
+    ],
+    "n_centroids": 64,
+    "accuracy": 0.5358333333333334,
+    "time": 19.796114206314087
+  },
+  {
+    "algorithm": "lbg",
+    "features": "vel_only",
+    "feature_indices": [
+      2,
+      3,
+      4
+    ],
+    "n_centroids": 128,
+    "accuracy": 0.52,
+    "time": 54.73892426490784
+  },
+  {
+    "algorithm": "lbg",
+    "features": "vel_only",
+    "feature_indices": [
+      2,
+      3,
+      4
+    ],
+    "n_centroids": 256,
+    "accuracy": 0.5308333333333334,
+    "time": 135.0507299900055
+  },
+  {
+    "algorithm": "mbkmeans",
+    "features": "pos_vel_ang",
+    "feature_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "n_centroids": 8,
+    "accuracy": 0.925,
+    "time": 0.6926047801971436
+  },
+  {
+    "algorithm": "mbkmeans",
+    "features": "pos_vel_ang",
+    "feature_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "n_centroids": 16,
+    "accuracy": 0.9208333333333333,
+    "time": 0.9341726303100586
+  },
+  {
+    "algorithm": "mbkmeans",
+    "features": "pos_vel_ang",
+    "feature_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "n_centroids": 32,
+    "accuracy": 0.9525,
+    "time": 1.51011061668396
+  },
+  {
+    "algorithm": "mbkmeans",
+    "features": "pos_vel_ang",
+    "feature_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "n_centroids": 64,
+    "accuracy": 0.955,
+    "time": 2.520496129989624
+  },
+  {
+    "algorithm": "mbkmeans",
+    "features": "pos_vel_ang",
+    "feature_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "n_centroids": 128,
+    "accuracy": 0.96,
+    "time": 4.337652206420898
+  },
+  {
+    "algorithm": "mbkmeans",
+    "features": "pos_vel_ang",
+    "feature_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "n_centroids": 256,
+    "accuracy": 0.9583333333333334,
+    "time": 8.740814924240112
+  },
+  {
+    "algorithm": "mbkmeans",
+    "features": "vel_ang",
+    "feature_indices": [
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "n_centroids": 8,
+    "accuracy": 0.37916666666666665,
+    "time": 0.675412654876709
+  },
+  {
+    "algorithm": "mbkmeans",
+    "features": "vel_ang",
+    "feature_indices": [
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "n_centroids": 16,
+    "accuracy": 0.39916666666666667,
+    "time": 0.8146247863769531
+  },
+  {
+    "algorithm": "mbkmeans",
+    "features": "vel_ang",
+    "feature_indices": [
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "n_centroids": 32,
+    "accuracy": 0.3441666666666667,
+    "time": 1.331038475036621
+  },
+  {
+    "algorithm": "mbkmeans",
+    "features": "vel_ang",
+    "feature_indices": [
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "n_centroids": 64,
+    "accuracy": 0.41583333333333333,
+    "time": 2.2626454830169678
+  },
+  {
+    "algorithm": "mbkmeans",
+    "features": "vel_ang",
+    "feature_indices": [
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "n_centroids": 128,
+    "accuracy": 0.44083333333333335,
+    "time": 3.851442813873291
+  },
+  {
+    "algorithm": "mbkmeans",
+    "features": "vel_ang",
+    "feature_indices": [
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "n_centroids": 256,
+    "accuracy": 0.46416666666666667,
+    "time": 7.235443353652954
+  },
+  {
+    "algorithm": "mbkmeans",
+    "features": "full",
+    "feature_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "n_centroids": 8,
+    "accuracy": 0.8733333333333333,
+    "time": 0.767573356628418
+  },
+  {
+    "algorithm": "mbkmeans",
+    "features": "full",
+    "feature_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "n_centroids": 16,
+    "accuracy": 0.92,
+    "time": 1.0045394897460938
+  },
+  {
+    "algorithm": "mbkmeans",
+    "features": "full",
+    "feature_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "n_centroids": 32,
+    "accuracy": 0.9466666666666667,
+    "time": 1.6091563701629639
+  },
+  {
+    "algorithm": "mbkmeans",
+    "features": "full",
+    "feature_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "n_centroids": 64,
+    "accuracy": 0.96,
+    "time": 2.7917916774749756
+  },
+  {
+    "algorithm": "mbkmeans",
+    "features": "full",
+    "feature_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "n_centroids": 128,
+    "accuracy": 0.9616666666666667,
+    "time": 5.195146083831787
+  },
+  {
+    "algorithm": "mbkmeans",
+    "features": "full",
+    "feature_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "n_centroids": 256,
+    "accuracy": 0.9675,
+    "time": 10.035944938659668
+  },
+  {
+    "algorithm": "mbkmeans",
+    "features": "vel_acc",
+    "feature_indices": [
+      2,
+      3,
+      4,
+      7,
+      8,
+      9
+    ],
+    "n_centroids": 8,
+    "accuracy": 0.485,
+    "time": 0.638136625289917
+  },
+  {
+    "algorithm": "mbkmeans",
+    "features": "vel_acc",
+    "feature_indices": [
+      2,
+      3,
+      4,
+      7,
+      8,
+      9
+    ],
+    "n_centroids": 16,
+    "accuracy": 0.5125,
+    "time": 0.880406379699707
+  },
+  {
+    "algorithm": "mbkmeans",
+    "features": "vel_acc",
+    "feature_indices": [
+      2,
+      3,
+      4,
+      7,
+      8,
+      9
+    ],
+    "n_centroids": 32,
+    "accuracy": 0.5183333333333333,
+    "time": 1.295422077178955
+  },
+  {
+    "algorithm": "mbkmeans",
+    "features": "vel_acc",
+    "feature_indices": [
+      2,
+      3,
+      4,
+      7,
+      8,
+      9
+    ],
+    "n_centroids": 64,
+    "accuracy": 0.54,
+    "time": 2.152437210083008
+  },
+  {
+    "algorithm": "mbkmeans",
+    "features": "vel_acc",
+    "feature_indices": [
+      2,
+      3,
+      4,
+      7,
+      8,
+      9
+    ],
+    "n_centroids": 128,
+    "accuracy": 0.5666666666666667,
+    "time": 3.82797908782959
+  },
+  {
+    "algorithm": "mbkmeans",
+    "features": "vel_acc",
+    "feature_indices": [
+      2,
+      3,
+      4,
+      7,
+      8,
+      9
+    ],
+    "n_centroids": 256,
+    "accuracy": 0.525,
+    "time": 7.613633871078491
+  },
+  {
+    "algorithm": "mbkmeans",
+    "features": "ang_curv",
+    "feature_indices": [
+      4,
+      5,
+      6,
+      10
+    ],
+    "n_centroids": 8,
+    "accuracy": 0.6416666666666667,
+    "time": 0.622504472732544
+  },
+  {
+    "algorithm": "mbkmeans",
+    "features": "ang_curv",
+    "feature_indices": [
+      4,
+      5,
+      6,
+      10
+    ],
+    "n_centroids": 16,
+    "accuracy": 0.6758333333333333,
+    "time": 0.8269953727722168
+  },
+  {
+    "algorithm": "mbkmeans",
+    "features": "ang_curv",
+    "feature_indices": [
+      4,
+      5,
+      6,
+      10
+    ],
+    "n_centroids": 32,
+    "accuracy": 0.6658333333333334,
+    "time": 1.2355427742004395
+  },
+  {
+    "algorithm": "mbkmeans",
+    "features": "ang_curv",
+    "feature_indices": [
+      4,
+      5,
+      6,
+      10
+    ],
+    "n_centroids": 64,
+    "accuracy": 0.6425,
+    "time": 2.238518238067627
+  },
+  {
+    "algorithm": "mbkmeans",
+    "features": "ang_curv",
+    "feature_indices": [
+      4,
+      5,
+      6,
+      10
+    ],
+    "n_centroids": 128,
+    "accuracy": 0.625,
+    "time": 3.58876895904541
+  },
+  {
+    "algorithm": "mbkmeans",
+    "features": "ang_curv",
+    "feature_indices": [
+      4,
+      5,
+      6,
+      10
+    ],
+    "n_centroids": 256,
+    "accuracy": 0.6266666666666667,
+    "time": 7.060587644577026
+  },
+  {
+    "algorithm": "mbkmeans",
+    "features": "pos_ang_curv",
+    "feature_indices": [
+      0,
+      1,
+      5,
+      6,
+      10
+    ],
+    "n_centroids": 8,
+    "accuracy": 0.8775,
+    "time": 0.6752510070800781
+  },
+  {
+    "algorithm": "mbkmeans",
+    "features": "pos_ang_curv",
+    "feature_indices": [
+      0,
+      1,
+      5,
+      6,
+      10
+    ],
+    "n_centroids": 16,
+    "accuracy": 0.9258333333333333,
+    "time": 0.8523080348968506
+  },
+  {
+    "algorithm": "mbkmeans",
+    "features": "pos_ang_curv",
+    "feature_indices": [
+      0,
+      1,
+      5,
+      6,
+      10
+    ],
+    "n_centroids": 32,
+    "accuracy": 0.9558333333333333,
+    "time": 1.3170735836029053
+  },
+  {
+    "algorithm": "mbkmeans",
+    "features": "pos_ang_curv",
+    "feature_indices": [
+      0,
+      1,
+      5,
+      6,
+      10
+    ],
+    "n_centroids": 64,
+    "accuracy": 0.9633333333333334,
+    "time": 2.268515110015869
+  },
+  {
+    "algorithm": "mbkmeans",
+    "features": "pos_ang_curv",
+    "feature_indices": [
+      0,
+      1,
+      5,
+      6,
+      10
+    ],
+    "n_centroids": 128,
+    "accuracy": 0.965,
+    "time": 3.9388084411621094
+  },
+  {
+    "algorithm": "mbkmeans",
+    "features": "pos_ang_curv",
+    "feature_indices": [
+      0,
+      1,
+      5,
+      6,
+      10
+    ],
+    "n_centroids": 256,
+    "accuracy": 0.9658333333333333,
+    "time": 7.827924966812134
+  },
+  {
+    "algorithm": "mbkmeans",
+    "features": "all_no_pos",
+    "feature_indices": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "n_centroids": 8,
+    "accuracy": 0.6391666666666667,
+    "time": 0.7050998210906982
+  },
+  {
+    "algorithm": "mbkmeans",
+    "features": "all_no_pos",
+    "feature_indices": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "n_centroids": 16,
+    "accuracy": 0.6758333333333333,
+    "time": 0.9555249214172363
+  },
+  {
+    "algorithm": "mbkmeans",
+    "features": "all_no_pos",
+    "feature_indices": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "n_centroids": 32,
+    "accuracy": 0.6416666666666667,
+    "time": 1.4848804473876953
+  },
+  {
+    "algorithm": "mbkmeans",
+    "features": "all_no_pos",
+    "feature_indices": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "n_centroids": 64,
+    "accuracy": 0.6741666666666667,
+    "time": 2.685039758682251
+  },
+  {
+    "algorithm": "mbkmeans",
+    "features": "all_no_pos",
+    "feature_indices": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "n_centroids": 128,
+    "accuracy": 0.6433333333333333,
+    "time": 4.588433504104614
+  },
+  {
+    "algorithm": "mbkmeans",
+    "features": "all_no_pos",
+    "feature_indices": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "n_centroids": 256,
+    "accuracy": 0.6308333333333334,
+    "time": 8.683475017547607
+  },
+  {
+    "algorithm": "mbkmeans",
+    "features": "vel_only",
+    "feature_indices": [
+      2,
+      3,
+      4
+    ],
+    "n_centroids": 8,
+    "accuracy": 0.5016666666666667,
+    "time": 0.562708854675293
+  },
+  {
+    "algorithm": "mbkmeans",
+    "features": "vel_only",
+    "feature_indices": [
+      2,
+      3,
+      4
+    ],
+    "n_centroids": 16,
+    "accuracy": 0.5083333333333333,
+    "time": 0.7949249744415283
+  },
+  {
+    "algorithm": "mbkmeans",
+    "features": "vel_only",
+    "feature_indices": [
+      2,
+      3,
+      4
+    ],
+    "n_centroids": 32,
+    "accuracy": 0.5308333333333334,
+    "time": 1.1782903671264648
+  },
+  {
+    "algorithm": "mbkmeans",
+    "features": "vel_only",
+    "feature_indices": [
+      2,
+      3,
+      4
+    ],
+    "n_centroids": 64,
+    "accuracy": 0.5266666666666666,
+    "time": 2.1000022888183594
+  },
+  {
+    "algorithm": "mbkmeans",
+    "features": "vel_only",
+    "feature_indices": [
+      2,
+      3,
+      4
+    ],
+    "n_centroids": 128,
+    "accuracy": 0.52,
+    "time": 3.647181749343872
+  },
+  {
+    "algorithm": "mbkmeans",
+    "features": "vel_only",
+    "feature_indices": [
+      2,
+      3,
+      4
+    ],
+    "n_centroids": 256,
+    "accuracy": 0.5208333333333334,
+    "time": 6.643421173095703
+  }
+]

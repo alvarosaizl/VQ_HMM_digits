@@ -1,0 +1,261 @@
+{
+  "mejor_config": {
+    "algorithm": "kmeans",
+    "features": "full",
+    "n_dims": 11,
+    "n_centroids": 256,
+    "accuracy_val": 0.9733333333333334
+  },
+  "evaluacion_final": {
+    "N74": {
+      "accuracy": 0.9723684210526315
+    },
+    "N47": {
+      "accuracy": 0.9728260869565217
+    },
+    "LOO": {
+      "accuracy_media": 0.9690860215053764,
+      "accuracy_std": 0.042303919824984035,
+      "accuracies_por_usuario": {
+        "101": 0.9625,
+        "102": 0.975,
+        "103": 0.9375,
+        "104": 0.95,
+        "105": 0.9875,
+        "106": 0.95,
+        "107": 0.9875,
+        "108": 0.975,
+        "109": 1.0,
+        "110": 0.975,
+        "111": 0.9875,
+        "112": 0.9125,
+        "114": 0.9875,
+        "115": 1.0,
+        "118": 0.9125,
+        "119": 1.0,
+        "120": 0.9375,
+        "121": 1.0,
+        "122": 0.9875,
+        "124": 1.0,
+        "125": 0.9875,
+        "126": 0.925,
+        "127": 1.0,
+        "128": 0.85,
+        "129": 0.9875,
+        "130": 0.9875,
+        "131": 0.975,
+        "132": 0.9625,
+        "133": 1.0,
+        "134": 1.0,
+        "135": 1.0,
+        "136": 0.975,
+        "137": 0.975,
+        "138": 0.975,
+        "139": 0.95,
+        "141": 0.9625,
+        "142": 1.0,
+        "143": 0.925,
+        "144": 0.975,
+        "145": 0.9875,
+        "146": 0.9875,
+        "147": 0.925,
+        "148": 1.0,
+        "149": 0.75,
+        "150": 1.0,
+        "151": 1.0,
+        "152": 0.8875,
+        "153": 0.9625,
+        "154": 1.0,
+        "155": 0.9875,
+        "156": 1.0,
+        "157": 1.0,
+        "158": 0.9875,
+        "159": 0.9875,
+        "160": 0.975,
+        "161": 0.975,
+        "162": 0.9875,
+        "163": 0.925,
+        "164": 1.0,
+        "165": 0.9,
+        "166": 0.875,
+        "167": 0.8875,
+        "168": 1.0,
+        "169": 0.975,
+        "170": 1.0,
+        "180": 1.0,
+        "181": 0.9875,
+        "182": 1.0,
+        "183": 0.95,
+        "184": 0.9875,
+        "185": 0.9875,
+        "186": 0.9625,
+        "187": 0.95,
+        "188": 0.9875,
+        "190": 1.0,
+        "191": 0.9625,
+        "192": 1.0,
+        "193": 1.0,
+        "194": 0.975,
+        "195": 0.925,
+        "196": 0.9625,
+        "197": 0.9875,
+        "198": 0.9875,
+        "199": 1.0,
+        "200": 0.9625,
+        "201": 1.0,
+        "202": 0.975,
+        "203": 0.95,
+        "204": 1.0,
+        "205": 1.0,
+        "206": 1.0,
+        "207": 1.0,
+        "208": 0.825
+      }
+    }
+  },
+  "grid_search": {
+    "total_configs": 144,
+    "top_20": [
+      {
+        "algorithm": "kmeans",
+        "features": "full",
+        "n_centroids": 256,
+        "accuracy": 0.9733333333333334,
+        "time": 58.44666242599487
+      },
+      {
+        "algorithm": "lbg",
+        "features": "full",
+        "n_centroids": 256,
+        "accuracy": 0.9716666666666667,
+        "time": 418.7768461704254
+      },
+      {
+        "algorithm": "lbg",
+        "features": "pos_ang_curv",
+        "n_centroids": 64,
+        "accuracy": 0.9716666666666667,
+        "time": 37.50917291641235
+      },
+      {
+        "algorithm": "kmeans",
+        "features": "full",
+        "n_centroids": 64,
+        "accuracy": 0.9708333333333333,
+        "time": 18.517696380615234
+      },
+      {
+        "algorithm": "kmeans",
+        "features": "full",
+        "n_centroids": 128,
+        "accuracy": 0.9708333333333333,
+        "time": 32.51972770690918
+      },
+      {
+        "algorithm": "lbg",
+        "features": "full",
+        "n_centroids": 64,
+        "accuracy": 0.9708333333333333,
+        "time": 91.82493257522583
+      },
+      {
+        "algorithm": "kmeans",
+        "features": "pos_ang_curv",
+        "n_centroids": 256,
+        "accuracy": 0.97,
+        "time": 47.18451118469238
+      },
+      {
+        "algorithm": "lbg",
+        "features": "pos_ang_curv",
+        "n_centroids": 128,
+        "accuracy": 0.97,
+        "time": 90.62607622146606
+      },
+      {
+        "algorithm": "lbg",
+        "features": "pos_ang_curv",
+        "n_centroids": 256,
+        "accuracy": 0.97,
+        "time": 203.51135730743408
+      },
+      {
+        "algorithm": "kmeans",
+        "features": "full",
+        "n_centroids": 32,
+        "accuracy": 0.9691666666666666,
+        "time": 13.474504947662354
+      },
+      {
+        "algorithm": "kmeans",
+        "features": "pos_ang_curv",
+        "n_centroids": 128,
+        "accuracy": 0.9691666666666666,
+        "time": 23.450603723526
+      },
+      {
+        "algorithm": "lbg",
+        "features": "full",
+        "n_centroids": 128,
+        "accuracy": 0.9691666666666666,
+        "time": 196.89420986175537
+      },
+      {
+        "algorithm": "mbkmeans",
+        "features": "full",
+        "n_centroids": 256,
+        "accuracy": 0.9675,
+        "time": 10.035944938659668
+      },
+      {
+        "algorithm": "mbkmeans",
+        "features": "pos_ang_curv",
+        "n_centroids": 256,
+        "accuracy": 0.9658333333333333,
+        "time": 7.827924966812134
+      },
+      {
+        "algorithm": "lbg",
+        "features": "pos_vel_ang",
+        "n_centroids": 128,
+        "accuracy": 0.965,
+        "time": 125.21586227416992
+      },
+      {
+        "algorithm": "lbg",
+        "features": "pos_vel_ang",
+        "n_centroids": 256,
+        "accuracy": 0.965,
+        "time": 274.03439569473267
+      },
+      {
+        "algorithm": "mbkmeans",
+        "features": "pos_ang_curv",
+        "n_centroids": 128,
+        "accuracy": 0.965,
+        "time": 3.9388084411621094
+      },
+      {
+        "algorithm": "kmeans",
+        "features": "pos_ang_curv",
+        "n_centroids": 64,
+        "accuracy": 0.9641666666666666,
+        "time": 14.803784370422363
+      },
+      {
+        "algorithm": "mbkmeans",
+        "features": "pos_ang_curv",
+        "n_centroids": 64,
+        "accuracy": 0.9633333333333334,
+        "time": 2.268515110015869
+      },
+      {
+        "algorithm": "kmeans",
+        "features": "pos_vel_ang",
+        "n_centroids": 128,
+        "accuracy": 0.9625,
+        "time": 24.400954008102417
+      }
+    ]
+  }
+}

@@ -1,0 +1,134 @@
+{
+  "config_final": {
+    "n_mix": 2,
+    "n_estados": 7,
+    "covarianza": "diag",
+    "prob_autolazo": 0.6,
+    "features": "med"
+  },
+  "fase_final": 2,
+  "fase1": {
+    "resultados": [
+      {
+        "n_mix": 1,
+        "accuracy": 0.8708333333333333,
+        "tiempo": 615.0650041103363
+      },
+      {
+        "n_mix": 2,
+        "accuracy": 0.8483333333333334,
+        "tiempo": 5014.313905715942
+      },
+      {
+        "n_mix": 3,
+        "accuracy": 0.7591666666666667,
+        "tiempo": 4760.875324010849
+      }
+    ],
+    "mejor_n_mix": 1,
+    "mejor_acc": 0.8708333333333333,
+    "mejora": false
+  },
+  "fase2": {
+    "total_configs": 105,
+    "top_10": [
+      [
+        {
+          "n_mix": 2,
+          "n_estados": 7,
+          "prob_autolazo": 0.6
+        },
+        0.9475
+      ],
+      [
+        {
+          "n_mix": 2,
+          "n_estados": 5,
+          "prob_autolazo": 0.3
+        },
+        0.93
+      ],
+      [
+        {
+          "n_mix": 1,
+          "n_estados": 15,
+          "prob_autolazo": 0.3
+        },
+        0.9125
+      ],
+      [
+        {
+          "n_mix": 2,
+          "n_estados": 5,
+          "prob_autolazo": 0.7
+        },
+        0.9033333333333333
+      ],
+      [
+        {
+          "n_mix": 2,
+          "n_estados": 5,
+          "prob_autolazo": 0.9
+        },
+        0.9033333333333333
+      ],
+      [
+        {
+          "n_mix": 1,
+          "n_estados": 10,
+          "prob_autolazo": 0.3
+        },
+        0.9016666666666666
+      ],
+      [
+        {
+          "n_mix": 2,
+          "n_estados": 5,
+          "prob_autolazo": 0.5
+        },
+        0.9016666666666666
+      ],
+      [
+        {
+          "n_mix": 2,
+          "n_estados": 5,
+          "prob_autolazo": 0.4
+        },
+        0.9008333333333334
+      ],
+      [
+        {
+          "n_mix": 2,
+          "n_estados": 5,
+          "prob_autolazo": 0.8
+        },
+        0.8983333333333333
+      ],
+      [
+        {
+          "n_mix": 2,
+          "n_estados": 5,
+          "prob_autolazo": 0.6
+        },
+        0.8916666666666667
+      ]
+    ]
+  },
+  "fase3": null,
+  "evaluacion_final": {
+    "N74": {
+      "accuracy": 0.9302631578947368
+    },
+    "N47": {
+      "accuracy": 0.9260869565217391
+    }
+  },
+  "comparativa": {
+    "E1_N74": 0.9289,
+    "E1_N47": 0.8978,
+    "E2_N74": 0.927,
+    "E2_N47": 0.8989,
+    "E3_N74": 0.9302631578947368,
+    "E3_N47": 0.9260869565217391
+  }
+}
