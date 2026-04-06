@@ -1,11 +1,15 @@
 """
 =============================================================================
-BUSQUEDA DE HIPERPARAMETROS VQ
+BUSQUEDA DE HIPERPARAMETROS VQ (21 features — extractor local)
 =============================================================================
 Grid search sobre:
   - Algoritmo: KMeans, LBG (Linde-Buzo-Gray), MiniBatchKMeans
-  - Features: multiples subconjuntos (3D a 11D)
+  - Features: multiples subconjuntos (5D a 21D) del extractor local (23 cols)
   - N centroides: 8, 16, 32, 64, 128, 256
+
+Usa las 21 features del extractor local (extract_local_features.get_features),
+el mismo que el pipeline HMM.  Los indices hacen referencia a las 23 columnas
+del extractor (columnas 2 y 9, presion, siempre a cero).
 
 Validacion: 78 train / 15 val (misma particion que entregas HMM).
 Evaluacion final: N=74, N=47, LOO CV con la mejor config.
@@ -16,6 +20,7 @@ Uso:
 """
 
 import os
+import sys
 import re
 import glob
 import json
@@ -32,6 +37,15 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 warnings.filterwarnings("ignore")
+
+# -- Añadir el extractor local al path --
+SCRIPT_DIR_SETUP = os.path.dirname(os.path.abspath(__file__))
+REPO_ROOT_SETUP = os.path.dirname(os.path.dirname(SCRIPT_DIR_SETUP))
+EXTRACTOR_DIR = os.path.join(
+    REPO_ROOT_SETUP, "Extractores_adaptados", "Extractores", "Extractor Local"
+)
+sys.path.insert(0, EXTRACTOR_DIR)
+from extract_local_features import get_features  # noqa: E402
 
 # =============================================================================
 # CONFIGURACION
@@ -54,17 +68,29 @@ N_TRAIN_47 = 47
 GRID_ALGORITHMS = ["kmeans", "lbg", "mbkmeans"]
 GRID_N_CENTROIDS = [8, 16, 32, 64, 128, 256]
 
-# Feature subsets: name -> list of column indices into the full feature array
-# Full features (11D): x, y, vx, vy, v, sin_a, cos_a, ax, ay, |a|, dtheta
+# Feature subsets: name -> list of column indices into get_features output (23 cols).
+# Columns 2 (p) and 9 (dp) are always 0 — never included.
+#
+# get_features columns:
+#   0: x,  1: y,  (2: p=0),  3: theta,  4: v,  5: rho,  6: a,
+#   7: dx, 8: dy, (9: dp=0), 10: dtheta, 11: dv, 12: drho, 13: da,
+#   14: ddx, 15: ddy, 16: rminmax_v, 17: angle, 18: dangle,
+#   19: sin(angle), 20: cos(angle), 21: lewiratio5, 22: lewiratio7
+#
+FULL_INDICES = [0, 1, 3, 4, 5, 6, 7, 8, 10, 11, 12, 13,
+                14, 15, 16, 17, 18, 19, 20, 21, 22]        # 21D
+
 FEATURE_SETS = {
-    "pos_vel_ang":  [0, 1, 2, 3, 4, 5, 6],          # 7D: x,y,vx,vy,v,sin,cos (baseline)
-    "vel_ang":      [2, 3, 4, 5, 6],                  # 5D: vx,vy,v,sin,cos
-    "full":         [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],  # 11D: todo
-    "vel_acc":      [2, 3, 4, 7, 8, 9],               # 6D: vx,vy,v,ax,ay,|a|
-    "ang_curv":     [4, 5, 6, 10],                     # 4D: v,sin,cos,dtheta
-    "pos_ang_curv": [0, 1, 5, 6, 10],                 # 5D: x,y,sin,cos,dtheta
-    "all_no_pos":   [2, 3, 4, 5, 6, 7, 8, 9, 10],    # 9D: todo sin x,y
-    "vel_only":     [2, 3, 4],                         # 3D: vx,vy,v
+    # -- Subsets compatibles con pipeline HMM --
+    "min":          [7, 8, 19, 20, 10, 4, 5],                              # 7D
+    "med":          [7, 8, 19, 20, 10, 4, 5, 6, 11, 21, 0, 1],            # 12D
+    "full":         FULL_INDICES,                                           # 21D
+    # -- Subsets adicionales VQ --
+    "med_noxy":     [7, 8, 19, 20, 10, 4, 5, 6, 11, 21],                  # 10D
+    "med_plus":     [7, 8, 19, 20, 10, 4, 5, 6, 11, 21, 0, 1, 12, 13],   # 14D
+    "pos_ang_curv": [0, 1, 19, 20, 10],                                    # 5D
+    "kin_deriv":    [7, 8, 4, 6, 11, 14, 15, 13],                          # 8D: dx,dy,v,a,dv,ddx,ddy,da
+    "geom":         [0, 1, 3, 10, 5, 19, 20, 17, 21],                      # 9D: pos+angular+lewiratio
 }
 
 
@@ -106,53 +132,16 @@ def preprocess_trace(x, y, t):
     return x, y, t
 
 
-def compute_full_features(x, y, t):
-    """Calcula 11 features locales por punto.
+def compute_full_features(x, y, presion):
+    """Calcula 21 features locales usando el extractor local (get_features).
 
-    Columns:
-      0: x, 1: y, 2: vx, 3: vy, 4: v,
-      5: sin(angle), 6: cos(angle),
-      7: ax, 8: ay, 9: |a|, 10: dtheta (curvatura)
+    Devuelve la matriz (T, 23) completa; los subsets se seleccionan despues.
+    Columnas 2 y 9 son siempre 0 (presion desactivada en el extractor).
     """
-    dt = np.diff(t)
-    dt[dt <= 0] = np.median(dt[dt > 0]) if np.any(dt > 0) else 1.0
-
-    dx = np.diff(x)
-    dy = np.diff(y)
-    vx = dx / dt
-    vy = dy / dt
-    v = np.sqrt(vx**2 + vy**2)
-    angle = np.arctan2(dy, dx)
-    sin_a = np.sin(angle)
-    cos_a = np.cos(angle)
-
-    # Aceleracion (derivada de velocidad)
-    if len(vx) > 1:
-        dt2 = dt[1:]
-        dt2[dt2 <= 0] = np.median(dt2[dt2 > 0]) if np.any(dt2 > 0) else 1.0
-        ax = np.diff(vx) / dt2
-        ay = np.diff(vy) / dt2
-        a_mag = np.sqrt(ax**2 + ay**2)
-        # Pad to match length (prepend first value)
-        ax = np.concatenate([[ax[0]], ax])
-        ay = np.concatenate([[ay[0]], ay])
-        a_mag = np.concatenate([[a_mag[0]], a_mag])
-    else:
-        ax = np.zeros_like(vx)
-        ay = np.zeros_like(vy)
-        a_mag = np.zeros_like(v)
-
-    # Curvatura (cambio de angulo)
-    dtheta = np.diff(angle)
-    # Wrap to [-pi, pi]
-    dtheta = np.arctan2(np.sin(dtheta), np.cos(dtheta))
-    dtheta = np.concatenate([[dtheta[0]], dtheta]) if len(dtheta) > 0 else np.zeros_like(v)
-
-    x_mid = x[1:]
-    y_mid = y[1:]
-
-    feats = np.column_stack([x_mid, y_mid, vx, vy, v, sin_a, cos_a,
-                              ax, ay, a_mag, dtheta])
+    if presion is None:
+        presion = np.full_like(x, 255.0)
+    feats = get_features(x, y, presion, zscore=False)
+    feats = np.nan_to_num(feats, nan=0.0, posinf=0.0, neginf=0.0)
     return feats
 
 
@@ -189,9 +178,9 @@ def load_raw_dataset(db_path):
     for fp in txt_files:
         try:
             uid, digit, sid = parse_label_from_filename(fp)
-            x, y, t, _ = read_ebiodigit_file(fp)
+            x, y, t, p = read_ebiodigit_file(fp)
             x, y, t = preprocess_trace(x, y, t)
-            feats = compute_full_features(x, y, t)
+            feats = compute_full_features(x, y, p)
             if len(feats) > 0:
                 samples.append(RawSample(uid, digit, sid, feats))
         except Exception as e:
@@ -437,9 +426,9 @@ def main():
     print("=" * 70, flush=True)
 
     # ------------------------------------------------------------------
-    # [1] Cargar datos (full features, 11D)
+    # [1] Cargar datos (extractor local, 21 features utiles de 23 cols)
     # ------------------------------------------------------------------
-    print("\n[1] Cargando base de datos (features completas 11D)...", flush=True)
+    print("\n[1] Cargando base de datos (extractor local, 21 features)...", flush=True)
     raw_samples, user_ids = load_raw_dataset(DB_PATH)
 
     # ------------------------------------------------------------------

@@ -3,6 +3,7 @@
 IMPLEMENTACION VQ: Clasificador de digitos por Vector Quantization
 =============================================================================
 Un codebook (KMeans) por digito, clasificacion por minima distorsion media.
+Baseline 7D del extractor local (mismo que busqueda_VQ.py y pipeline HMM).
 
 Escenarios: N=74, N=47, y Leave-One-User-Out Cross-Validation.
 
@@ -12,6 +13,7 @@ Uso:
 """
 
 import os
+import sys
 import re
 import glob
 import json
@@ -29,6 +31,15 @@ import seaborn as sns
 
 warnings.filterwarnings("ignore")
 
+# -- Añadir el extractor local al path --
+SCRIPT_DIR_SETUP = os.path.dirname(os.path.abspath(__file__))
+REPO_ROOT_SETUP = os.path.dirname(os.path.dirname(SCRIPT_DIR_SETUP))
+EXTRACTOR_DIR = os.path.join(
+    REPO_ROOT_SETUP, "Extractores_adaptados", "Extractores", "Extractor Local"
+)
+sys.path.insert(0, EXTRACTOR_DIR)
+from extract_local_features import get_features  # noqa: E402
+
 # =============================================================================
 # CONFIGURACION
 # =============================================================================
@@ -43,6 +54,11 @@ N_TRAIN_74 = 74
 N_TRAIN_47 = 47
 
 N_CENTROIDS = 32
+
+# Subset 7D del extractor local (23 cols): x, y, dx, dy, v, sin(angle), cos(angle)
+# Analogo al baseline original (pos_vel_ang) pero sourcing del extractor comun.
+BASELINE_FEATURE_INDICES = [0, 1, 7, 8, 4, 19, 20]
+BASELINE_FEATURE_NAMES = "x, y, dx, dy, v, sin(angle), cos(angle)"
 
 
 # =============================================================================
@@ -90,25 +106,17 @@ def preprocess_trace(x, y, t):
     return x, y, t
 
 
-def compute_local_features(x, y, t):
-    """Calcula features locales: x, y, vx, vy, v, sin(angle), cos(angle)."""
-    dt = np.diff(t)
-    dt[dt <= 0] = np.median(dt[dt > 0]) if np.any(dt > 0) else 1.0
+def compute_local_features(x, y, presion):
+    """Calcula features locales (7D) usando el extractor local.
 
-    dx = np.diff(x)
-    dy = np.diff(y)
-    vx = dx / dt
-    vy = dy / dt
-    v = np.sqrt(vx**2 + vy**2)
-    angle = np.arctan2(dy, dx)
-    sin_a = np.sin(angle)
-    cos_a = np.cos(angle)
-
-    # Features en los puntos de diferencia (N-1 puntos)
-    x_mid = x[1:]
-    y_mid = y[1:]
-    feats = np.column_stack([x_mid, y_mid, vx, vy, v, sin_a, cos_a])
-    return feats
+    Devuelve subset [x, y, dx, dy, v, sin(angle), cos(angle)] — el mismo que el
+    baseline original pero sourcing del extractor comun con busqueda_VQ y HMM.
+    """
+    if presion is None:
+        presion = np.full_like(x, 255.0)
+    feats = get_features(x, y, presion, zscore=False)
+    feats = np.nan_to_num(feats, nan=0.0, posinf=0.0, neginf=0.0)
+    return feats[:, BASELINE_FEATURE_INDICES]
 
 
 # =============================================================================
@@ -139,9 +147,9 @@ def load_dataset(db_path):
     for fp in txt_files:
         try:
             user_id, digit, sample_id = parse_label_from_filename(fp)
-            x, y, t, _ = read_ebiodigit_file(fp)
+            x, y, t, p = read_ebiodigit_file(fp)
             x, y, t = preprocess_trace(x, y, t)
-            feats = compute_local_features(x, y, t)
+            feats = compute_local_features(x, y, p)
             if len(feats) > 0:
                 samples.append(Sample(user_id, digit, sample_id, feats))
         except Exception as e:
@@ -398,7 +406,9 @@ def main():
     resumen = {
         "modelo": "VQ (1 codebook KMeans por digito)",
         "n_centroids": N_CENTROIDS,
-        "features": "x, y, vx, vy, v, sin(angle), cos(angle) (7D)",
+        "extractor": "local (get_features 23 cols, subset 7D)",
+        "features_indices": BASELINE_FEATURE_INDICES,
+        "features": f"{BASELINE_FEATURE_NAMES} (7D)",
         "N74": {
             "accuracy": acc_74,
             "train_users": len(user_ids[:N_TRAIN_74]),
@@ -432,7 +442,7 @@ def main():
     print("  RESUMEN VQ")
     print("=" * 60)
     print(f"\n  Modelo: 1 codebook KMeans ({N_CENTROIDS} centroides) por digito")
-    print(f"  Features: 7D (x, y, vx, vy, v, sin_a, cos_a)")
+    print(f"  Features: 7D ({BASELINE_FEATURE_NAMES}) — extractor local")
     print(f"\n  {'Escenario':<15} {'Accuracy':>10}")
     print("  " + "-" * 27)
     print(f"  {'N=74':<15} {acc_74 * 100:>9.2f}%")
