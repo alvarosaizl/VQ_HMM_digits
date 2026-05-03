@@ -1,0 +1,169 @@
+======================================================================
+  ENSEMBLE PARALELO HMM (GMMHMM med) + VQ (MBKMeans pos_ang_curv k=128)
+======================================================================
+Cargando base de datos...
+  93 usuarios, 7440 muestras
+
+[N74] train usuarios=74 (5920 muestras) | test usuarios=19 (1520 muestras)
+  Entrenando HMM (n_iter=40, n_restarts=2)...
+    digito 0: 592 seqs, LL=1050143 (171s)
+    digito 1: 592 seqs, LL=1226587 (170s)
+    digito 2: 592 seqs, LL=1186313 (171s)
+    digito 3: 592 seqs, LL=1089711 (185s)
+    digito 4: 592 seqs, LL=961594 (193s)
+    digito 5: 592 seqs, LL=920229 (184s)
+    digito 6: 592 seqs, LL=1208242 (211s)
+    digito 7: 592 seqs, LL=-inf (206s)
+    digito 8: 592 seqs, LL=940051 (124s)
+    digito 9: 592 seqs, LL=986361 (183s)
+  HMM listo (1799s)
+  Entrenando VQ (MBKMeans k=128, features=pos_ang_curv)...
+  VQ listo (4s)
+  Inferencia sobre test...
+  Inferencia lista (31s)
+
+[N74] Accuracies:
+    hmm               :  85.92%
+    vq                :  96.84%
+    agreement         :  96.84%
+    soft              :  95.39%
+    conf_weighted     :  96.71%
+    margin_weighted   :  96.84%
+    oracle            :  98.82%
+    fallos solapados (both wrong): 1.18%
+  Guardado: /home/saizalvaro21/Desktop/uni/4/ASMI/repo/Entrega3/Paralel/resultados/ensemble_N74.json
+
+[N47] train usuarios=47 (3760 muestras) | test usuarios=46 (3680 muestras)
+  Entrenando HMM (n_iter=40, n_restarts=2)...
+    digito 0: 376 seqs, LL=697261 (135s)
+    digito 1: 376 seqs, LL=813066 (108s)
+    digito 2: 376 seqs, LL=772583 (96s)
+    digito 3: 376 seqs, LL=679119 (99s)
+    digito 4: 376 seqs, LL=606495 (85s)
+    digito 5: 376 seqs, LL=575609 (118s)
+    digito 6: 376 seqs, LL=755749 (130s)
+    digito 7: 376 seqs, LL=-inf (123s)
+    digito 8: 376 seqs, LL=607036 (115s)
+    digito 9: 376 seqs, LL=-inf (125s)
+  HMM listo (1133s)
+  Entrenando VQ (MBKMeans k=128, features=pos_ang_curv)...
+  VQ listo (4s)
+  Inferencia sobre test...
+  Inferencia lista (70s)
+
+[N47] Accuracies:
+    hmm               :  74.97%
+    vq                :  97.04%
+    agreement         :  97.04%
+    soft              :  92.34%
+    conf_weighted     :  96.36%
+    margin_weighted   :  97.04%
+    oracle            :  98.26%
+    fallos solapados (both wrong): 1.74%
+  Guardado: /home/saizalvaro21/Desktop/uni/4/ASMI/repo/Entrega3/Paralel/resultados/ensemble_N47.json
+  [LOO  1/93] uid=101 hmm= 48.8% vq= 97.5% agree= 97.5% cw= 96.2% (474s)
+  [LOO  2/93] uid=102 hmm= 75.0% vq= 97.5% agree= 97.5% cw= 97.5% (358s)
+  [LOO  3/93] uid=103 hmm= 78.8% vq= 95.0% agree= 95.0% cw= 95.0% (378s)
+  [LOO  4/93] uid=104 hmm= 75.0% vq= 93.8% agree= 93.8% cw= 93.8% (368s)
+  [LOO  5/93] uid=105 hmm= 67.5% vq=100.0% agree=100.0% cw=100.0% (368s)
+  [LOO  6/93] uid=106 hmm= 75.0% vq= 93.8% agree= 93.8% cw= 93.8% (368s)
+  [LOO  7/93] uid=107 hmm= 72.5% vq=100.0% agree=100.0% cw=100.0% (384s)
+  [LOO  8/93] uid=108 hmm= 60.0% vq= 98.8% agree= 98.8% cw= 98.8% (378s)
+  [LOO  9/93] uid=109 hmm= 55.0% vq= 98.8% agree= 98.8% cw= 97.5% (377s)
+  [LOO 10/93] uid=110 hmm= 73.8% vq= 95.0% agree= 95.0% cw= 95.0% (382s)
+  [LOO 11/93] uid=111 hmm= 75.0% vq=100.0% agree=100.0% cw=100.0% (388s)
+  [LOO 12/93] uid=112 hmm= 50.0% vq=100.0% agree= 98.8% cw= 96.2% (374s)
+  [LOO 13/93] uid=114 hmm= 77.5% vq= 97.5% agree= 97.5% cw=100.0% (398s)
+  [LOO 14/93] uid=115 hmm= 68.8% vq=100.0% agree=100.0% cw= 98.8% (383s)
+  [LOO 15/93] uid=118 hmm= 55.0% vq= 93.8% agree= 93.8% cw= 91.2% (377s)
+  [LOO 16/93] uid=119 hmm= 68.8% vq=100.0% agree= 98.8% cw= 98.8% (386s)
+  [LOO 17/93] uid=120 hmm= 70.0% vq= 95.0% agree= 96.2% cw= 93.8% (386s)
+  [LOO 18/93] uid=121 hmm= 82.5% vq=100.0% agree=100.0% cw=100.0% (389s)
+  [LOO 19/93] uid=122 hmm= 63.7% vq= 98.8% agree= 98.8% cw=100.0% (383s)
+  [LOO 20/93] uid=124 hmm= 70.0% vq=100.0% agree=100.0% cw= 98.8% (354s)
+  [LOO 21/93] uid=125 hmm= 80.0% vq= 98.8% agree= 98.8% cw=100.0% (356s)
+  [LOO 22/93] uid=126 hmm= 32.5% vq= 93.8% agree= 95.0% cw= 92.5% (345s)
+  [LOO 23/93] uid=127 hmm= 68.8% vq= 97.5% agree= 97.5% cw= 97.5% (355s)
+  [LOO 24/93] uid=128 hmm= 56.2% vq= 83.8% agree= 83.8% cw= 83.8% (348s)
+  [LOO 25/93] uid=129 hmm= 73.8% vq=100.0% agree=100.0% cw= 98.8% (359s)
+  [LOO 26/93] uid=130 hmm= 66.2% vq=100.0% agree=100.0% cw= 97.5% (351s)
+  [LOO 27/93] uid=131 hmm= 66.2% vq= 98.8% agree= 98.8% cw= 96.2% (356s)
+  [LOO 28/93] uid=132 hmm= 82.5% vq= 93.8% agree= 93.8% cw= 92.5% (358s)
+  [LOO 29/93] uid=133 hmm= 76.2% vq=100.0% agree=100.0% cw=100.0% (351s)
+  [LOO 30/93] uid=134 hmm= 90.0% vq=100.0% agree=100.0% cw= 98.8% (357s)
+  [LOO 31/93] uid=135 hmm= 75.0% vq=100.0% agree=100.0% cw=100.0% (332s)
+  [LOO 32/93] uid=136 hmm= 77.5% vq= 96.2% agree= 96.2% cw= 95.0% (362s)
+  [LOO 33/93] uid=137 hmm= 76.2% vq= 95.0% agree= 93.8% cw= 95.0% (339s)
+  [LOO 34/93] uid=138 hmm= 60.0% vq=100.0% agree=100.0% cw=100.0% (349s)
+  [LOO 35/93] uid=139 hmm= 68.8% vq= 96.2% agree= 96.2% cw= 91.2% (350s)
+  [LOO 36/93] uid=141 hmm= 65.0% vq= 93.8% agree= 93.8% cw= 95.0% (333s)
+  [LOO 37/93] uid=142 hmm= 63.7% vq= 97.5% agree= 97.5% cw= 96.2% (325s)
+  [LOO 38/93] uid=143 hmm= 85.0% vq= 95.0% agree= 95.0% cw= 91.2% (332s)
+  [LOO 39/93] uid=144 hmm= 80.0% vq= 96.2% agree= 97.5% cw= 96.2% (356s)
+  [LOO 40/93] uid=145 hmm= 63.7% vq= 93.8% agree= 93.8% cw= 93.8% (341s)
+  [LOO 41/93] uid=146 hmm= 80.0% vq= 98.8% agree= 98.8% cw= 98.8% (352s)
+  [LOO 42/93] uid=147 hmm= 73.8% vq= 92.5% agree= 92.5% cw= 92.5% (353s)
+  [LOO 43/93] uid=148 hmm= 57.5% vq=100.0% agree=100.0% cw= 98.8% (350s)
+  [LOO 44/93] uid=149 hmm= 76.2% vq= 82.5% agree= 82.5% cw= 83.8% (360s)
+  [LOO 45/93] uid=150 hmm= 88.8% vq=100.0% agree=100.0% cw= 97.5% (356s)
+  [LOO 46/93] uid=151 hmm= 50.0% vq= 98.8% agree= 98.8% cw= 98.8% (355s)
+  [LOO 47/93] uid=152 hmm= 68.8% vq= 88.8% agree= 88.8% cw= 88.8% (353s)
+  [LOO 48/93] uid=153 hmm= 67.5% vq= 97.5% agree= 97.5% cw= 93.8% (342s)
+  [LOO 49/93] uid=154 hmm= 65.0% vq= 97.5% agree= 97.5% cw= 96.2% (334s)
+  [LOO 50/93] uid=155 hmm= 60.0% vq= 98.8% agree= 98.8% cw= 98.8% (350s)
+  [LOO 51/93] uid=156 hmm= 82.5% vq=100.0% agree=100.0% cw=100.0% (354s)
+  [LOO 52/93] uid=157 hmm= 67.5% vq=100.0% agree=100.0% cw=100.0% (355s)
+  [LOO 53/93] uid=158 hmm= 70.0% vq= 96.2% agree= 96.2% cw=100.0% (340s)
+  [LOO 54/93] uid=159 hmm= 86.2% vq= 97.5% agree= 97.5% cw= 98.8% (350s)
+  [LOO 55/93] uid=160 hmm= 77.5% vq= 95.0% agree= 95.0% cw= 96.2% (356s)
+  [LOO 56/93] uid=161 hmm= 52.5% vq= 97.5% agree= 97.5% cw=100.0% (347s)
+  [LOO 57/93] uid=162 hmm= 70.0% vq=100.0% agree=100.0% cw=100.0% (354s)
+  [LOO 58/93] uid=163 hmm= 71.2% vq= 95.0% agree= 95.0% cw= 90.0% (333s)
+  [LOO 59/93] uid=164 hmm= 85.0% vq=100.0% agree=100.0% cw=100.0% (350s)
+  [LOO 60/93] uid=165 hmm= 73.8% vq= 91.2% agree= 91.2% cw= 90.0% (356s)
+  [LOO 61/93] uid=166 hmm= 70.0% vq= 81.2% agree= 81.2% cw= 77.5% (355s)
+  [LOO 62/93] uid=167 hmm= 65.0% vq= 91.2% agree= 90.0% cw= 90.0% (353s)
+  [LOO 63/93] uid=168 hmm= 78.8% vq=100.0% agree=100.0% cw=100.0% (354s)
+  [LOO 64/93] uid=169 hmm= 85.0% vq= 93.8% agree= 92.5% cw= 91.2% (359s)
+  [LOO 65/93] uid=170 hmm= 68.8% vq=100.0% agree=100.0% cw=100.0% (356s)
+  [LOO 66/93] uid=180 hmm= 70.0% vq=100.0% agree=100.0% cw= 96.2% (352s)
+  [LOO 67/93] uid=181 hmm= 73.8% vq=100.0% agree=100.0% cw= 96.2% (350s)
+  [LOO 68/93] uid=182 hmm= 80.0% vq=100.0% agree=100.0% cw= 98.8% (356s)
+  [LOO 69/93] uid=183 hmm= 80.0% vq= 95.0% agree= 95.0% cw= 95.0% (360s)
+  [LOO 70/93] uid=184 hmm= 70.0% vq=100.0% agree=100.0% cw=100.0% (350s)
+  [LOO 71/93] uid=185 hmm= 72.5% vq= 97.5% agree= 97.5% cw= 92.5% (358s)
+  [LOO 72/93] uid=186 hmm= 51.2% vq= 92.5% agree= 92.5% cw= 87.5% (350s)
+  [LOO 73/93] uid=187 hmm= 73.8% vq= 93.8% agree= 93.8% cw= 96.2% (359s)
+  [LOO 74/93] uid=188 hmm= 80.0% vq= 98.8% agree= 98.8% cw= 97.5% (344s)
+  [LOO 75/93] uid=190 hmm= 78.8% vq=100.0% agree=100.0% cw=100.0% (361s)
+  [LOO 76/93] uid=191 hmm= 51.2% vq= 97.5% agree= 97.5% cw= 91.2% (352s)
+  [LOO 77/93] uid=192 hmm= 58.8% vq= 98.8% agree= 98.8% cw= 98.8% (342s)
+  [LOO 78/93] uid=193 hmm= 55.0% vq= 98.8% agree= 97.5% cw= 98.8% (357s)
+  [LOO 79/93] uid=194 hmm= 46.2% vq= 96.2% agree= 96.2% cw= 90.0% (352s)
+  [LOO 80/93] uid=195 hmm= 60.0% vq= 93.8% agree= 93.8% cw= 88.8% (345s)
+  [LOO 81/93] uid=196 hmm= 70.0% vq= 97.5% agree= 96.2% cw= 95.0% (336s)
+  [LOO 82/93] uid=197 hmm= 70.0% vq=100.0% agree= 98.8% cw= 93.8% (358s)
+  [LOO 83/93] uid=198 hmm= 71.2% vq= 97.5% agree= 97.5% cw= 96.2% (338s)
+  [LOO 84/93] uid=199 hmm= 80.0% vq=100.0% agree=100.0% cw=100.0% (336s)
+  [LOO 85/93] uid=200 hmm= 58.8% vq= 93.8% agree= 93.8% cw= 97.5% (355s)
+  [LOO 86/93] uid=201 hmm= 77.5% vq= 96.2% agree= 96.2% cw= 96.2% (358s)
+  [LOO 87/93] uid=202 hmm= 68.8% vq= 98.8% agree= 98.8% cw= 97.5% (342s)
+  [LOO 88/93] uid=203 hmm= 48.8% vq= 95.0% agree= 92.5% cw= 87.5% (328s)
+  [LOO 89/93] uid=204 hmm= 78.8% vq=100.0% agree=100.0% cw=100.0% (355s)
+  [LOO 90/93] uid=205 hmm= 80.0% vq=100.0% agree=100.0% cw=100.0% (354s)
+  [LOO 91/93] uid=206 hmm= 71.2% vq=100.0% agree=100.0% cw=100.0% (355s)
+  [LOO 92/93] uid=207 hmm= 78.8% vq= 97.5% agree= 97.5% cw=100.0% (359s)
+  [LOO 93/93] uid=208 hmm= 61.3% vq= 80.0% agree= 80.0% cw= 83.8% (358s)
+
+[LOO] Accuracies globales:
+    hmm               :  69.65%
+    vq                :  96.75%
+    agreement         :  96.65%
+    soft              :  93.27%
+    conf_weighted     :  95.83%
+    margin_weighted   :  96.56%
+    oracle            :  98.09%
+    fallos solapados: 1.91%
+  Guardado: /home/saizalvaro21/Desktop/uni/4/ASMI/repo/Entrega3/Paralel/resultados/ensemble_LOO.json
+
+Total: 604.9 min

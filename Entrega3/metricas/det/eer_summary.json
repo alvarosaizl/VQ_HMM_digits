@@ -1,0 +1,92 @@
+{
+  "N74": [
+    {
+      "model": "E1 HMM (GaussianHMM)",
+      "eer": 0.05657894736842106
+    },
+    {
+      "model": "E2B HMM (GMMHMM)",
+      "eer": 0.12880116959064328
+    },
+    {
+      "model": "VQ optimizado",
+      "eer": 0.018421052631578894
+    },
+    {
+      "model": "Paralel agreement",
+      "eer": 0.07521929824561403
+    },
+    {
+      "model": "Paralel soft",
+      "eer": 0.03355263157894739
+    },
+    {
+      "model": "Paralel margin_weighted",
+      "eer": 0.018421052631578894
+    },
+    {
+      "model": "Serial cascade (HMM->VQ)",
+      "eer": 0.20723684210526316
+    }
+  ],
+  "N47": [
+    {
+      "model": "E1 HMM (GaussianHMM)",
+      "eer": 0.06467391304347825
+    },
+    {
+      "model": "E2B HMM (GMMHMM)",
+      "eer": 0.20978260869565213
+    },
+    {
+      "model": "VQ optimizado",
+      "eer": 0.01929347826086958
+    },
+    {
+      "model": "Paralel agreement",
+      "eer": 0.07161835748792271
+    },
+    {
+      "model": "Paralel soft",
+      "eer": 0.0451086956521739
+    },
+    {
+      "model": "Paralel margin_weighted",
+      "eer": 0.019716183574879226
+    },
+    {
+      "model": "Serial cascade (HMM->VQ)",
+      "eer": 0.4923913043478261
+    }
+  ],
+  "LOO": [
+    {
+      "model": "E1 HMM (GaussianHMM)",
+      "eer": 0.2058542413381123
+    },
+    {
+      "model": "E2B HMM (GMMHMM)",
+      "eer": 0.3198924731182796
+    },
+    {
+      "model": "VQ optimizado",
+      "eer": 0.01910095579450418
+    },
+    {
+      "model": "Paralel agreement",
+      "eer": 0.14879032258064517
+    },
+    {
+      "model": "Paralel soft",
+      "eer": 0.03978494623655915
+    },
+    {
+      "model": "Paralel margin_weighted",
+      "eer": 0.026792114695340503
+    },
+    {
+      "model": "Serial cascade (HMM->VQ)",
+      "eer": 0.12338709677419357
+    }
+  ]
+}

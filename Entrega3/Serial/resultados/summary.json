@@ -1,0 +1,83 @@
+{
+  "N74": {
+    "tag": "N74",
+    "hmm_config": {
+      "n_mix": 2,
+      "n_estados": 7,
+      "cov": "diag",
+      "prob_autolazo": 0.6,
+      "features": "med"
+    },
+    "hmm_fit_kfold": {
+      "n_iter": 40,
+      "n_restarts": 2
+    },
+    "hmm_fit_final": {
+      "n_iter": 40,
+      "n_restarts": 2
+    },
+    "k_folds": 3,
+    "best_vq": {
+      "algorithm": "kmeans",
+      "norm": "softmax",
+      "k": 2,
+      "accuracy": 0.9025,
+      "time_s": 0.21366524696350098
+    },
+    "acc_hmm_baseline": 0.6723684210526316,
+    "acc_serial": 0.6723684210526316,
+    "n_train_users": 74,
+    "n_test_users": 19
+  },
+  "N47": {
+    "tag": "N47",
+    "hmm_config": {
+      "n_mix": 2,
+      "n_estados": 7,
+      "cov": "diag",
+      "prob_autolazo": 0.6,
+      "features": "med"
+    },
+    "hmm_fit_kfold": {
+      "n_iter": 40,
+      "n_restarts": 2
+    },
+    "hmm_fit_final": {
+      "n_iter": 40,
+      "n_restarts": 2
+    },
+    "k_folds": 3,
+    "best_vq": {
+      "algorithm": "lbg",
+      "norm": "zscore",
+      "k": 32,
+      "accuracy": 0.8527777777777777,
+      "time_s": 0.3983886241912842
+    },
+    "acc_hmm_baseline": 0.839945652173913,
+    "acc_serial": 0.09891304347826087,
+    "n_train_users": 47,
+    "n_test_users": 46
+  },
+  "LOO": {
+    "tag": "LOO",
+    "hmm_config": {
+      "n_mix": 2,
+      "n_estados": 7,
+      "cov": "diag",
+      "prob_autolazo": 0.6,
+      "features": "med"
+    },
+    "hmm_fit_loo": {
+      "n_iter": 15,
+      "n_restarts": 1
+    },
+    "vq_algorithm": "kmeans",
+    "vq_norm": "softmax",
+    "vq_k": 2,
+    "acc_hmm_baseline": 0.7001344086021506,
+    "acc_serial": 0.6831989247311828,
+    "n_folds": 93,
+    "loo_pipeline": "simplified (no inner K-fold OOF; VQ trained on leaky train LLs)"
+  }
+}
