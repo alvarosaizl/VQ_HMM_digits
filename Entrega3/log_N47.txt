@@ -1,0 +1,27 @@
+Cargando base de datos...
+  93 usuarios, 7440 muestras
+
+============================================================
+[N47] n_iter=100 n_restarts=10
+============================================================
+  train=47 usuarios (3760 muestras)  test=46 usuarios (3680 muestras)
+  Entrenando GMMHMM...
+    dígito 0: LL=707634  (861s acum.)
+    dígito 1: LL=813055  (1661s acum.)
+    dígito 2: LL=801962  (2342s acum.)
+    dígito 3: LL=697676  (5210s acum.)
+    dígito 4: LL=625711  (6374s acum.)
+    dígito 5: LL=603237  (7402s acum.)
+    dígito 6: LL=766046  (8710s acum.)
+    dígito 7: LL=694328  (10127s acum.)
+    dígito 8: LL=612447  (11245s acum.)
+    dígito 9: LL=669154  (12621s acum.)
+  HMM listo (12712s)
+  Entrenando VQ...
+
+  Accuracies [N47]:
+    hmm               : 93.32%
+    vq                : 97.04%
+    margin_weighted   : 97.34%
+    oracle            : 98.56%
+  Guardado: /home/saizalvaro21/Desktop/uni/4/ASMI/repo/Entrega3/Paralel/resultados/ensemble_N47_full.json

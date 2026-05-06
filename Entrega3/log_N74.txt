@@ -1,0 +1,27 @@
+Cargando base de datos...
+  93 usuarios, 7440 muestras
+
+============================================================
+[N74] n_iter=100 n_restarts=10
+============================================================
+  train=74 usuarios (5920 muestras)  test=19 usuarios (1520 muestras)
+  Entrenando GMMHMM...
+    dígito 0: LL=1064845  (1450s acum.)
+    dígito 1: LL=1256586  (2892s acum.)
+    dígito 2: LL=1276378  (6856s acum.)
+    dígito 3: LL=1135665  (8444s acum.)
+    dígito 4: LL=1002797  (10416s acum.)
+    dígito 5: LL=972455  (11819s acum.)
+    dígito 6: LL=1224950  (13777s acum.)
+    dígito 7: LL=1115350  (15743s acum.)
+    dígito 8: LL=970094  (16899s acum.)
+    dígito 9: LL=997182  (18824s acum.)
+  HMM listo (18851s)
+  Entrenando VQ...
+
+  Accuracies [N74]:
+    hmm               : 96.51%
+    vq                : 96.84%
+    margin_weighted   : 97.57%
+    oracle            : 98.55%
+  Guardado: /home/saizalvaro21/Desktop/uni/4/ASMI/repo/Entrega3/Paralel/resultados/ensemble_N74_full.json

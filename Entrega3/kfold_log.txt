@@ -1,0 +1,130 @@
+nohup: ignoring input
+======================================================================
+  K-FOLD HMM+VQ  (K=5, n_iter=80, n_restarts=6)
+======================================================================
+Cargando base de datos...
+  93 usuarios, 7440 muestras
+
+Pliegues (5 folds):
+  Fold 1: 19 usuarios — [129, 132, 166, 133, 108, 195, 204, 121, 102, 192, 183, 198, 110, 150, 164, 199, 124, 159, 180]
+  Fold 2: 19 usuarios — [122, 187, 152, 203, 144, 138, 126, 200, 188, 202, 137, 119, 136, 191, 197, 112, 141, 118, 193]
+  Fold 3: 19 usuarios — [165, 190, 131, 148, 158, 157, 134, 185, 207, 125, 169, 154, 104, 182, 160, 194, 170, 115, 109]
+  Fold 4: 18 usuarios — [103, 208, 162, 130, 186, 184, 145, 106, 156, 196, 128, 161, 201, 139, 155, 147, 153, 181]
+  Fold 5: 18 usuarios — [163, 105, 143, 206, 101, 111, 146, 167, 168, 149, 205, 151, 120, 135, 107, 127, 114, 142]
+
+[Fold 1/5] train=74 usuarios (5920 muestras)  test=19 usuarios (1520 muestras)
+  Entrenando GMMHMM (n_iter=80, n_restarts=6)...
+    dígito 0: 592 seqs  LL=1084812  (714s acum.)
+    dígito 1: 592 seqs  LL=1216673  (1467s acum.)
+    dígito 2: 592 seqs  LL=1262826  (1954s acum.)
+    dígito 3: 592 seqs  LL=1088341  (2597s acum.)
+    dígito 4: 592 seqs  LL=986505  (3373s acum.)
+    dígito 5: 592 seqs  LL=953118  (4028s acum.)
+    dígito 6: 592 seqs  LL=1220584  (4865s acum.)
+    dígito 7: 592 seqs  LL=-inf  (5788s acum.)
+    dígito 8: 592 seqs  LL=961058  (6572s acum.)
+    dígito 9: 592 seqs  LL=-inf  (7495s acum.)
+  HMM listo (7495s)
+  Entrenando VQ (K=128, pos_ang_curv)...
+  VQ listo (3s)
+  Inferencia...
+    hmm               : 76.64%
+    vq                : 97.30%
+    margin_weighted   : 97.30%
+  Checkpoint guardado (1/5 folds)
+
+[Fold 2/5] train=74 usuarios (5920 muestras)  test=19 usuarios (1520 muestras)
+  Entrenando GMMHMM (n_iter=80, n_restarts=6)...
+    dígito 0: 592 seqs  LL=1100518  (665s acum.)
+    dígito 1: 592 seqs  LL=1185332  (1497s acum.)
+    dígito 2: 592 seqs  LL=1282483  (2065s acum.)
+    dígito 3: 592 seqs  LL=1057914  (2514s acum.)
+    dígito 4: 592 seqs  LL=-inf  (3201s acum.)
+    dígito 5: 592 seqs  LL=952829  (3626s acum.)
+    dígito 6: 592 seqs  LL=1230636  (4471s acum.)
+    dígito 7: 592 seqs  LL=1121478  (5058s acum.)
+    dígito 8: 592 seqs  LL=967679  (5797s acum.)
+    dígito 9: 592 seqs  LL=-inf  (6722s acum.)
+  HMM listo (6722s)
+  Entrenando VQ (K=128, pos_ang_curv)...
+  VQ listo (3s)
+  Inferencia...
+    hmm               : 76.18%
+    vq                : 96.78%
+    margin_weighted   : 96.71%
+  Checkpoint guardado (2/5 folds)
+
+[Fold 3/5] train=74 usuarios (5920 muestras)  test=19 usuarios (1520 muestras)
+  Entrenando GMMHMM (n_iter=80, n_restarts=6)...
+    dígito 0: 592 seqs  LL=1082743  (760s acum.)
+    dígito 1: 592 seqs  LL=1238860  (1639s acum.)
+    dígito 2: 592 seqs  LL=1281294  (2452s acum.)
+    dígito 3: 592 seqs  LL=1098087  (3303s acum.)
+    dígito 4: 592 seqs  LL=978057  (4189s acum.)
+    dígito 5: 592 seqs  LL=972104  (4857s acum.)
+    dígito 6: 592 seqs  LL=1199038  (5585s acum.)
+    dígito 7: 592 seqs  LL=1078550  (6421s acum.)
+    dígito 8: 592 seqs  LL=944749  (6991s acum.)
+    dígito 9: 592 seqs  LL=-inf  (7915s acum.)
+  HMM listo (7916s)
+  Entrenando VQ (K=128, pos_ang_curv)...
+  VQ listo (3s)
+  Inferencia...
+    hmm               : 84.34%
+    vq                : 98.03%
+    margin_weighted   : 97.70%
+  Checkpoint guardado (3/5 folds)
+
+[Fold 4/5] train=75 usuarios (6000 muestras)  test=18 usuarios (1440 muestras)
+  Entrenando GMMHMM (n_iter=80, n_restarts=6)...
+    dígito 0: 600 seqs  LL=1132976  (684s acum.)
+    dígito 1: 600 seqs  LL=1306252  (1539s acum.)
+    dígito 2: 600 seqs  LL=1288375  (2378s acum.)
+    dígito 3: 600 seqs  LL=1163571  (3185s acum.)
+    dígito 4: 600 seqs  LL=-inf  (3994s acum.)
+    dígito 5: 600 seqs  LL=977657  (4614s acum.)
+    dígito 6: 600 seqs  LL=1258873  (5343s acum.)
+    dígito 7: 600 seqs  LL=1157536  (6283s acum.)
+    dígito 8: 600 seqs  LL=971865  (6867s acum.)
+    dígito 9: 600 seqs  LL=-inf  (7793s acum.)
+  HMM listo (7793s)
+  Entrenando VQ (K=128, pos_ang_curv)...
+  VQ listo (3s)
+  Inferencia...
+    hmm               : 75.00%
+    vq                : 96.18%
+    margin_weighted   : 96.04%
+  Checkpoint guardado (4/5 folds)
+
+[Fold 5/5] train=75 usuarios (6000 muestras)  test=18 usuarios (1440 muestras)
+  Entrenando GMMHMM (n_iter=80, n_restarts=6)...
+    dígito 0: 600 seqs  LL=1077828  (517s acum.)
+    dígito 1: 600 seqs  LL=1252706  (1426s acum.)
+    dígito 2: 600 seqs  LL=1308253  (2182s acum.)
+    dígito 3: 600 seqs  LL=1116783  (2711s acum.)
+    dígito 4: 600 seqs  LL=927594  (3434s acum.)
+    dígito 5: 600 seqs  LL=962760  (4042s acum.)
+    dígito 6: 600 seqs  LL=1227768  (4862s acum.)
+    dígito 7: 600 seqs  LL=1118643  (5697s acum.)
+    dígito 8: 600 seqs  LL=974337  (6356s acum.)
+    dígito 9: 600 seqs  LL=1015658  (7201s acum.)
+  HMM listo (7201s)
+  Entrenando VQ (K=128, pos_ang_curv)...
+  VQ listo (3s)
+  Inferencia...
+    hmm               : 90.62%
+    vq                : 97.22%
+    margin_weighted   : 97.36%
+  Checkpoint guardado (5/5 folds)
+
+── Accuracies globales (K5-fold) ───────────────────────────────────
+  hmm                   : 80.51%
+  vq                    : 97.11%
+  agreement             : 97.10%
+  soft                  : 95.22%
+  conf_weighted         : 96.94%
+  margin_weighted       : 97.03%
+  oracle                : 98.13%
+
+Resultados guardados en: /home/saizalvaro21/Desktop/uni/4/ASMI/repo/Entrega3/Paralel/resultados/ensemble_K5fold.json
+Total: 10.36 horas
